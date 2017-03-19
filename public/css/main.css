@@ -1,0 +1,158 @@
+body {font-family: "Roboto", Arial, sans-serif; color: #333; background-color: #fff;}
+a, a:hover, a:active, a:focus {text-decoration: none; outline: 0;}
+a {transition: color 0.2s; color: #000;}
+a:hover {color: #5e8dcf;}
+.btn {border-radius: 0;}
+
+
+.section-title {margin: 0 0 15px 0; font-family: "Roboto Condensed", sans-serif; font-size: 28px; font-weight: 400; border-bottom: 1px dotted #ddd; padding-bottom: 10px; color: #000;}
+.section-title.strong {font-weight: 700;}
+.section-title.green {color: #07d29b; border-bottom-color: #07d29b;}
+
+.galleries .item {position: relative; margin-bottom: 30px;}
+.galleries .item img {display: block; width: 100%; height: auto;}
+.galleries .item .detail {position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,1) 100%); opacity: 0.85; transition: all 0.5s ease;}
+.galleries .item .detail:hover {opacity: 1;}
+.galleries .item .detail a {display: block; position: absolute; left: 0; top: 0; right: 0; bottom: 0;}
+.galleries .item .detail h3 {position: absolute; left: 0; right: 0; bottom: 0; padding: 15px; color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0,1); margin: 0 0 5px 0; font-weight: 500; font-size: 24px;}
+.galleries .item .images {font-size: 12px; position: absolute; left: 15px; top: 15px; color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0,1); background-color: rgba(0,0,0,0.5); padding: 2px 5px;}
+.galleries .item .images i {color: #fff602;}
+
+.breadcrumb {background-color: transparent; padding: 0; font-size: 13px; color: #999;}
+.breadcrumb a {color: #999;}
+.breadcrumb a:hover {color: #5e8dcf;}
+
+.side-news .item {position: relative; border-bottom: 1px dotted #ddd; padding-bottom: 15px; margin-bottom: 15px;}
+.side-news .item .image {position: relative;}
+.side-news .item .image img {display: block; width: 100%; height: auto;}
+.side-news .item .image .category {position: absolute; left: 10px; top: 10px; background-color: #fff602;}
+.side-news .item .image .category a {color: #000; font-size: 13px; display: block; padding: 2px 5px; font-style: italic; font-weight: 500;}
+.side-news .item .detail {position: absolute; left: 0; top: 0; right: 0; bottom: 0; color: #fff; margin-bottom: 15px;}
+.side-news .item .detail:before {content: ""; position: absolute; left: 0; top: 0; right: 0; bottom: 0; color: #fff; background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,1) 100%); opacity: 0.85; transition: all 0.5s ease;}
+.side-news .item .detail:hover:before {opacity: 1;}
+.side-news .item .detail a {position: absolute; left: 0; right: 0; bottom: 0; padding: 15px; color: #fff;}
+.side-news .item .detail h3 {margin: 0 0 15px 0; font-weight: 500; font-size: 24px;}
+.side-news .item .detail .date {font-size: 13px;}
+
+
+.category-news .item {position: relative; border-bottom: 1px dotted #ddd; padding-bottom: 15px; margin-bottom: 15px;}
+.category-news .item .image {position: relative;}
+.category-news .item .image img {display: block; width: 100%; height: auto;}
+.category-news .item .image .category {position: absolute; left: 10px; top: 10px; background-color: #fff602;}
+.category-news .item .image .category a {color: #000; font-size: 13px; display: block; padding: 2px 5px; font-style: italic; font-weight: 500;}
+.category-news .item .images {font-size: 12px; position: absolute; left: 15px; top: 15px; color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0,1); background-color: rgba(0,0,0,0.5); padding: 2px 5px;}
+.category-news .item .images i {color: #fff602;}
+.category-news .item .detail a {display: block;}
+.category-news .item .detail h3 {margin: 0 0 10px 0; font-weight: 500; font-size: 18px;}
+.category-news .item .detail p {color: #555;}
+.category-news .item .detail .date {font-size: 13px; color: #999;}
+
+
+
+.common-buttons {margin-bottom: 25px;}
+.common-buttons .btn {color: #fff; font-size: 13px; border-radius: 0;}
+.common-buttons .btn i {font-size: 16px; text-align: center;}
+.common-buttons .btn.facebook {background-color: #3b5998;}
+.common-buttons .btn.twitter {background-color: #00aced;}
+.common-buttons .btn.google {background-color: #d34836;}
+.common-buttons .btn.visited {background-color: #eee; color: #888; float: right;}
+.common-buttons .btn.visited strong {color: #333;}
+.common-typography {font-size: 16px; line-height: 24px;}
+.common-summary {font-size: 20px; margin-bottom: 15px; font-weight: 500; line-height: 26px;}
+
+
+.news-details .news-content {margin-bottom: 30px;}
+.news-details .image {margin-bottom: 30px;}
+.news-details .image img {display: block; width: 100%; height: auto;}
+
+.gallery-details .gallery-content {margin-bottom: 30px;}
+.gallery-details .images-serial .item {margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px dotted #ddd;}
+.gallery-details .images-serial .item .title {font-size: 20px; margin-top: 15px; font-weight: 500; line-height: 26px;}
+.gallery-details .images-serial .item .image {margin-top: 15px;}
+.gallery-details .images-serial .item .image img {display: block; width: 100%; height: auto;}
+.gallery-details .images-serial .item .content {margin-top: 15px;}
+
+
+
+#header {background-color: #fff;}
+#header .head {height: 80px; border-bottom: 1px solid #eee;}
+#header .head .logo {font-size: 40px; font-weight: 700; padding-top: 20px; line-height: 1;}
+#header .head .form {padding-top: 25px;}
+#header .head .form .form-control {border-radius: 0;}
+#header .head .form .btn {border-radius: 0;}
+
+/* Navbar Reset */
+#header .menu .navbar {margin: 0; border-radius: 0; border: 0; background-color: transparent;}
+#header .menu .navbar .navbar-header .navbar-toggle {float: none;}
+#header .menu .navbar .navbar-collapse {padding: 0;}
+#header .menu .navbar .navbar-collapse .navbar-nav > li > a {background-color: transparent;}
+#header .menu .navbar .navbar-collapse .navbar-nav > li.open > a,
+#header .menu .navbar .navbar-collapse .navbar-nav > li:hover > a {background-color: transparent;}
+#header .menu .navbar .navbar-collapse .navbar-nav > li.dropdown:hover .dropdown-menu {display: block;}
+/*****/
+
+#header .menu {background-color: #5e8dcf;}
+#header .menu .navbar .navbar-header .navbar-toggle {}
+#header .menu .navbar .navbar-collapse .navbar-nav > li > a {color: #fff; font-size: 14px; transition: all 0.2s;}
+#header .menu .navbar .navbar-collapse .navbar-nav > li.open > a,
+#header .menu .navbar .navbar-collapse .navbar-nav > li.active > a,
+#header .menu .navbar .navbar-collapse .navbar-nav > li:hover > a {background-color: rgba(0,0,0,.12);}
+
+#slider {margin: 30px 0;}
+#slider a {display: block;}
+#slider .hero {position: absolute; bottom: 0; left: 0; right: 0; top: 0; z-index: 3;color: #fff; text-align: center; text-shadow: 1px 1px 1px rgba(0,0,0,.75); background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,1) 100%); opacity: 0.85; transition: all 0.5s ease; }
+#slider .hero:hover {opacity: 1;}
+#slider .caption {position: absolute; bottom: 0; left: 0; right: 0; padding-bottom: 40px; }
+#slider .caption h2 {font-size: 28px; font-weight: bold ;margin: 0; padding: 0;}
+#slider .caption h2 a {color: #fff;}
+#slider .caption p {font-size: 18px;}
+#slider .carousel-indicators {bottom: 10px; margin-bottom: 0;}
+#slider .carousel-control {background: transparent; width: 7%;}
+
+#showcase {margin-bottom: 30px;}
+#showcase .item {position: relative;}
+#showcase .item img {display: block; width: 100%; height: auto;}
+#showcase .item .detail {position: absolute; left: 0; top: 0; right: 0; bottom: 0; color: #fff;}
+#showcase .item .detail:before {content: ""; position: absolute; left: 0; top: 0; right: 0; bottom: 0; color: #fff; background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,1) 100%); opacity: 0.85; transition: all 0.5s ease;}
+#showcase .item .detail:hover:before {opacity: 1;}
+#showcase .item .detail a {position: absolute; left: 0; right: 0; bottom: 0; padding: 15px; color: #fff;}
+#showcase .item .detail h3 {margin: 0 0 15px 0; font-weight: 500; font-size: 24px;}
+#showcase .item .category {position: absolute; left: 15px; top: 15px; background-color: #fff602;}
+#showcase .item .category a {color: #000; font-size: 13px; display: block; padding: 2px 5px; font-style: italic; font-weight: 500;}
+
+
+#news .main-news {margin-bottom: 15px;}
+#news .main-news .item {position: relative; border-bottom: 1px dotted #ddd; padding-bottom: 15px; margin-bottom: 15px;}
+#news .main-news .item .row {margin: 0 -10px;}
+#news .main-news .item .col-sm-6 {padding: 0 10px;}
+#news .main-news .item .image {position: relative;}
+#news .main-news .item .image img {display: block; width: 100%; height: auto;}
+#news .main-news .item .image .category {position: absolute; left: 10px; top: 10px; background-color: #fff602;}
+#news .main-news .item .image .category a {color: #000; font-size: 13px; display: block; padding: 2px 5px; font-style: italic; font-weight: 500;}
+#news .main-news .item .detail a {display: block;}
+#news .main-news .item .detail h3 {margin: 0 0 10px 0; font-weight: 500; font-size: 18px; height: 78px; overflow: hidden;}
+#news .main-news .item .detail .date {font-size: 13px; color: #999;}
+#news .main-news .more {text-align: center;}
+
+#news .galleries {margin-bottom: 30px;}
+#news .galleries .row {margin: 0 -1px 0 0;}
+#news .galleries .column {padding: 0 1px 1px 0;}
+#news .galleries .item {margin: 0;}
+#news .galleries .item .detail h3 {font-size: 18px;}
+#news .galleries .item.big .detail h3 {font-size: 24px; font-family: "Roboto", sans-serif;}
+#news .galleries .more {margin-top: 10px; text-align: center;}
+
+
+
+#footer {background-color: #292929; color: #fff; padding: 30px 0; font-size: 13px;}
+#footer a {color: #ccc;}
+#footer a:hover {color: #fff;}
+#footer .caption {font-size: 16px; font-weight: 300; padding-bottom: 8px; border-bottom: 1px solid #444; margin-bottom: 10px;}
+#footer nav ul {list-style: none; margin: 0; padding: 0;}
+#footer nav ul li {padding-bottom: 3px;}
+#footer .social ul {list-style: none; margin: 0; padding: 0;}
+#footer .social ul li {display: inline-block;}
+#footer .social ul li a {width: 30px; height: 30px; display: block; font-size: 18px; line-height: 30px; text-align: center; background-color: #ccc; color: #fff;}
+#footer .social ul li a:hover {background-color: #fff;}
+
+#main {padding: 30px 0; min-height: 500px;}

@@ -1,0 +1,32 @@
+{
+  "name": "sirius-ci/core",
+  "description": "Cms Skeleton",
+  "keywords": ["cms","panel","site"],
+  "homepage": "https://github.com/sirius-ci/core",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gürkan Uzunca",
+      "email": "selam@gurkanuzunca.com",
+      "homepage": "http://gurkanuzunca.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0",
+    "cocur/slugify": "2.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sirius\\": "sirius/",
+      "Controllers\\": "application/controllers/",
+      "Models\\": "application/models/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://github.com/sirius-ci/modules/raw/master"
+    }
+  ]
+}

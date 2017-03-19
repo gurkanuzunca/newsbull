@@ -1,0 +1,5 @@
+RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^ index.php [QSA,L]
+RewriteCond $1 !^(public|(modules\/[a-zA-Z]+\/public))
+RewriteRule ^(.*)$ index.php [QSA,L]

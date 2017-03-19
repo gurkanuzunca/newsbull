@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=latin-ext');
+
+body {background-color: #ecf0f1; font-size: 13px; font-family: "Open Sans", Arial, sans-serif;}
+a {outline: none;}
+.nav-tabs {margin-bottom: 15px;}
+.checkbox label {line-height: 20px;}
+.radio label {line-height: 20px;}
+.image-thumbs {margin-bottom: 50px;}
+.margined {margin-top: 50px;}
+.alert.alert-error {background-color: #f2dede; border-color: #ebccd1; color: #a94442;}
+.fa {font-size: 14px;}
+
+#login i {width: 14px;}
+
+#header {margin: 0; left: 0; right: 0; z-index: 1000; position: fixed;}
+#header .header-brand {float: left; height: 60px; background-color: #00b6ad; width: 220px;}
+#header .header-brand .brand-text {display: block; line-height: 60px; padding: 0 15px; width: 100%; color: #fff; font-weight: 700; text-shadow: 1px 1px 1px rgba(0,0,0,0.3); font-size: 24px; text-decoration: none;}
+#header .header-toolbar {background-color: rgba(255,255,255,0.95); height: 60px; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1); margin-left: 220px;}
+#header .navigation {margin: 0 15px;}
+#header .navigation .nav > li {float: left;}
+#header .navigation .nav > li > a {height: 60px; padding: 0 15px; line-height: 60px; cursor: pointer; background-color: transparent; color: #999;}
+#header .navigation .nav > li > a:hover {color: #00b6ad;}
+#header .navigation .nav > li > a > i {font-size: 18px;}
+#header .navigation .nav > li.open > a {background-color: #f5f5f5; color: #00b6ad;}
+#header .navigation .dropdown-menu {font-size: 12px;}
+#header .navigation .dropdown-menu:before {border-color: transparent transparent rgba(0,0,0,0.15); border-style: solid; border-width: 9px; bottom: 100%; content: " "; height: 0; right: 14px; position: absolute; width: 0;}
+#header .navigation .dropdown-menu:after {border-color: transparent transparent #fff; border-style: solid; border-width: 8px; bottom: 100%; content: " "; height: 0; right: 15px; position: absolute; width: 0;}
+#header .navigation .dropdown-menu i {width: 15px;}
+#header .navigation .profile .image {width: 35px; height: 35px; line-height: 35px; text-align: center; text-transform: uppercase; background-color: #00b6ad; border-radius: 50%; color: #fff; font-size: 18px; text-shadow: 0 2px 0 rgba(0,0,0,0.2);  font-weight: 600; display: inline-block; vertical-align: middle; box-shadow: 0 2px 0 0 rgba(0,0,0,0.2); margin-right: 5px;}
+
+#sidebar {background-color: #2a2a2a; color: #777; position: fixed; top: 0; left: 0; bottom: 0; z-index: 200; width: 220px; padding-top: 60px;}
+#sidebar .sidemenu {padding-top: 10px;}
+#sidebar .sidemenu ul {margin: 0; padding: 0; list-style: none;}
+#sidebar .sidemenu ul a {text-decoration: none;}
+#sidebar .sidemenu ul a:hover {color: #c3c3c3;}
+#sidebar .sidemenu > ul > li > a {display: block; padding: 10px 10px 10px 15px; color: #909090; cursor: pointer; font-weight: 600;}
+#sidebar .sidemenu > ul > li > a > i {margin-right: 10px; width: 18px; font-size: 16px; float: left; margin-top: 1px; text-align: center;}
+#sidebar .sidemenu > ul > li > a:hover > i {color: #00b6ad;}
+#sidebar .sidemenu > ul > li > a > span {float: right; margin-top: 10px; color: #444;}
+#sidebar .sidemenu > ul > li:after {border-top: 1px solid #2f2f2f; content: ""; left: 48px; position: absolute; right: 0;}
+#sidebar .sidemenu > ul > li > ul {display: none; background-color: #202020; padding-left: 48px; overflow: hidden; position: relative;}
+#sidebar .sidemenu > ul > li > ul:after {border-left: 1px solid #2f2f2f; bottom: 0; content: ""; left: 28px; position: absolute;top: 0;}
+#sidebar .sidemenu > ul > li > ul > li {position: relative; width: 100%;}
+#sidebar .sidemenu > ul > li > ul > li:after {background-color: #2f2f2f; content: ""; position: absolute; border-radius: 50%; box-shadow: 0 0 0 2px #202020; height: 8px; width: 8px; left: -24px; top: 14px; z-index: 1;}
+#sidebar .sidemenu > ul > li > ul > li:hover:after {background-color: #00b6ad;}
+#sidebar .sidemenu > ul > li > ul > li > a {color: #777; display: block;  padding: 8px 0;}
+
+#main {padding: 80px 0 0 220px;}
+#footer {padding: 10px 0 10px 220px; font-size: 11px; color: #ccc;}
+
+.panel .panel-heading {font-size: 14px; font-weight: 600;}
+.panel .panel-heading i {margin-right: 10px; color: #00b6ad;}
+.panel .panel-toolbar {background-color: #fbfbfb; padding: 14px; border-bottom: 1px solid #ddd;}
+.panel .table thead {color: #5e5e5e; background-color: #f9f9f9;}
+.panel .table thead tr:first-child {border-bottom: 2px solid #ddd;}
+.panel .panel-footer .pagination {margin: 5px 0;}
+
+.breadcrumb {background-color: transparent; padding: 0;}
+.breadcrumb a {color: #00b6ad; text-decoration: none;}
+
+
+.app {margin-bottom: 20px; display: block; height: 82px;}
+.app.app-info .app-icon {background-color: #63d3e9; border-bottom: 3px solid #47bfd6;}
+.app.app-success .app-icon {background-color: #91c854; border-bottom: 3px solid #7bb13e;}
+.app .app-icon {width: 35%; float: left; border-radius: 4px 0 0 4px; height: 100%; text-align: center;}
+.app .app-icon i {font-size: 38px; margin: 20px 0; color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0, 0.2);}
+.app .app-body {width: 65%; float: right; background-color: #fff; border: 1px solid #ddd; border-bottom-width: 3px; border-left: none; border-radius: 0 4px 4px 0; height: 100%; position: relative;}
+.app .app-body .label {position: absolute; top: -5px; right: -5px;}
+.app .app-body .app-title {padding: 10px; display: table-cell; vertical-align: middle; height: 82px; width: 151px; color: #333;}
+.app .app-body .app-title span {display: block; font-weight: 600; font-size: 16px;}
+
+.app-full {margin-bottom: 20px; display: block; height: 82px; border-radius: 4px;}
+.app-full.app-info {background-color: #63d3e9; border-bottom: 3px solid #47bfd6;}
+.app-full.app-success {background-color: #91c854; border-bottom: 3px solid #7bb13e;}
+.app-full .app-icon {width: 30%; float: left; text-align: center; height: 100%;}
+.app-full .app-icon i {font-size: 42px; margin: 20px; color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0, 0.2);}
+.app-full .app-body {width: 70%; float: right; height: 100%; position: relative;}
+.app-full .app-body .label {position: absolute; top: -5px; right: -5px;}
+.app-full .app-body .app-title {padding: 10px; display: table-cell; vertical-align: middle; height: 82px; width: 151px; color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0, 0.2);}
+.app-full .app-body .app-title span {display: block; font-weight: 600; font-size: 16px;}

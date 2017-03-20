@@ -195,6 +195,21 @@ class News extends Model
         return false;
     }
 
+    /**
+     * Referans alınan haber ile aynı kategorideki benzer haberler.
+     *
+     * @param \StdClass $news Referans alınan haber
+     * @param int $limit
+     * @return array
+     */
+    public function similar($news, $limit)
+    {
+        $this->db->where('id !=', $news->id)
+            ->where('categoryId', $news->categoryId);
+
+        return $this->allWithCategory(['limit' => $limit]);
+    }
+
 
     public function search($query)
     {

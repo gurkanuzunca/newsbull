@@ -16,11 +16,14 @@ class NewsController extends BaseController
             show_404();
         }
 
+        $similarNews = $this->news->similar($news, 4);
+
         $this->news->increaseVisit($news);
         $this->setMeta($news, ['type' => 'article', 'imagePath' => 'news/large']);
 
         $this->render('news/view', array(
-            'news' => $news
+            'news' => $news,
+            'similarNews' => $similarNews
         ));
     }
 

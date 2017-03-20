@@ -27,6 +27,15 @@
 
                     <?php $this->view('home/widget/share', ['record' => $news]) ?>
 
+                    <div class="main-news">
+                        <h2 class="section-title"><?php echo lang('Benzer Haberler'); ?></h2>
+                        <?php if (! empty($similarNews)): ?>
+                            <div class="row">
+                                <?php $this->view('news/widget/list-two', ['newscast' => $similarNews]) ?>
+                            </div>
+                        <?php endif ?>
+                    </div>
+
                 </div>
             </div>
 

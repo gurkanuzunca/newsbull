@@ -48,7 +48,6 @@ a:hover {color: #5e8dcf;}
 .category-news .item .detail .date {font-size: 13px; color: #999;}
 
 
-
 .common-buttons {margin-bottom: 25px;}
 .common-buttons .btn {color: #fff; font-size: 13px; border-radius: 0;}
 .common-buttons .btn i {font-size: 16px; text-align: center;}
@@ -72,6 +71,18 @@ a:hover {color: #5e8dcf;}
 .gallery-details .images-serial .item .image img {display: block; width: 100%; height: auto;}
 .gallery-details .images-serial .item .content {margin-top: 15px;}
 
+.main-news {margin-bottom: 15px;}
+.main-news .item {position: relative; border-bottom: 1px dotted #ddd; padding-bottom: 15px; margin-bottom: 15px;}
+.main-news .item .row {margin: 0 -10px;}
+.main-news .item .col-sm-6 {padding: 0 10px;}
+.main-news .item .image {position: relative;}
+.main-news .item .image img {display: block; width: 100%; height: auto;}
+.main-news .item .image .category {position: absolute; left: 10px; top: 10px; background-color: #fff602;}
+.main-news .item .image .category a {color: #000; font-size: 13px; display: block; padding: 2px 5px; font-style: italic; font-weight: 500;}
+.main-news .item .detail a {display: block;}
+.main-news .item .detail h3 {margin: 0 0 10px 0; font-weight: 500; font-size: 18px; height: 78px; overflow: hidden;}
+.main-news .item .detail .date {font-size: 13px; color: #999;}
+.main-news .more {text-align: center;}
 
 
 #header {background-color: #fff;}
@@ -120,19 +131,6 @@ a:hover {color: #5e8dcf;}
 #showcase .item .category {position: absolute; left: 15px; top: 15px; background-color: #fff602;}
 #showcase .item .category a {color: #000; font-size: 13px; display: block; padding: 2px 5px; font-style: italic; font-weight: 500;}
 
-
-#news .main-news {margin-bottom: 15px;}
-#news .main-news .item {position: relative; border-bottom: 1px dotted #ddd; padding-bottom: 15px; margin-bottom: 15px;}
-#news .main-news .item .row {margin: 0 -10px;}
-#news .main-news .item .col-sm-6 {padding: 0 10px;}
-#news .main-news .item .image {position: relative;}
-#news .main-news .item .image img {display: block; width: 100%; height: auto;}
-#news .main-news .item .image .category {position: absolute; left: 10px; top: 10px; background-color: #fff602;}
-#news .main-news .item .image .category a {color: #000; font-size: 13px; display: block; padding: 2px 5px; font-style: italic; font-weight: 500;}
-#news .main-news .item .detail a {display: block;}
-#news .main-news .item .detail h3 {margin: 0 0 10px 0; font-weight: 500; font-size: 18px; height: 78px; overflow: hidden;}
-#news .main-news .item .detail .date {font-size: 13px; color: #999;}
-#news .main-news .more {text-align: center;}
 
 #news .galleries {margin-bottom: 30px;}
 #news .galleries .row {margin: 0 -1px 0 0;}

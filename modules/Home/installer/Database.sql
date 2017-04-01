@@ -125,8 +125,8 @@ CREATE TABLE `categories` (
   `metaKeywords` text,
   `status` varchar(255) NOT NULL DEFAULT 'published',
   `language` varchar(5) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -147,9 +147,9 @@ CREATE TABLE `news` (
   `status` varchar(255) NOT NULL DEFAULT 'published',
   `visited` int(10) unsigned NOT NULL DEFAULT '0',
   `language` varchar(5) NOT NULL,
-  `publishedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `publishedAt` datetime NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_news_categoryId` (`categoryId`),
   CONSTRAINT `fk_news_categoryId` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`) ON UPDATE CASCADE
@@ -174,8 +174,8 @@ CREATE TABLE `galleries` (
   `status` varchar(255) NOT NULL DEFAULT 'published',
   `visited` int(10) unsigned NOT NULL DEFAULT '0',
   `language` varchar(5) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -191,8 +191,8 @@ CREATE TABLE `gallery_images` (
   `order` int(10) unsigned NOT NULL DEFAULT '0',
   `status` varchar(255) NOT NULL DEFAULT 'published',
   `language` varchar(5) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_images_galleryId` (`galleryId`),
   CONSTRAINT `fk_images_galleryId` FOREIGN KEY (`galleryId`) REFERENCES `galleries` (`id`) ON UPDATE CASCADE
@@ -211,8 +211,8 @@ CREATE TABLE `sliders` (
   `order` int(10) unsigned NOT NULL DEFAULT '0',
   `status` varchar(255) NOT NULL DEFAULT 'published',
   `language` varchar(5) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -227,7 +227,7 @@ CREATE TABLE `socials` (
   `order` int(10) unsigned NOT NULL DEFAULT '0',
   `status` varchar(255) NOT NULL DEFAULT 'published',
   `language` varchar(5) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

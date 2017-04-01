@@ -12,7 +12,7 @@ CREATE TABLE `categories` (
   `metaKeywords` text,
   `status` varchar(255) NOT NULL DEFAULT 'published',
   `language` varchar(5) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

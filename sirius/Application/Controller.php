@@ -106,7 +106,7 @@ abstract class Controller extends \MX_Controller
         }
 
         if ($this->form_validation->run() === false) {
-            $this->alert->set('error', $this->form_validation->errors());
+            $this->alert->set('error', $this->form_validation->error_array());
 
             return false;
         }

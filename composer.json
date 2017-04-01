@@ -1,8 +1,8 @@
 {
-  "name": "sirius-ci/core",
-  "description": "Cms Skeleton",
-  "keywords": ["cms","panel","site"],
-  "homepage": "https://github.com/sirius-ci/core",
+  "name": "gurkanuzunca/newsbull",
+  "description": "Newsbull news application.",
+  "keywords": ["news","cms","site"],
+  "homepage": "https://github.com/gurkanuzunca/newsbull",
   "type": "project",
   "license": "MIT",
   "authors": [
@@ -13,7 +13,7 @@
     }
   ],
   "require": {
-    "php": ">=5.3.0",
+    "php": ">=5.4.0",
     "cocur/slugify": "2.3"
   },
   "autoload": {

@@ -100,7 +100,7 @@ class CI_Pagination {
 	 *
 	 * @var	int
 	 */
-	public $cur_page = 0;
+	public $cur_page = 1;
 
 	/**
 	 * Use page numbers flag

@@ -39,6 +39,10 @@
                         </div>
                     <?php endforeach; ?>
                 </div>
+
+                <?php if (! empty($paginate)): ?>
+                    <?php echo $paginate['pagination'] ?>
+                <?php endif; ?>
             </div>
 
             <div class="col-sm-4">

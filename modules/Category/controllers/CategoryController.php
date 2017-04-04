@@ -9,15 +9,25 @@ class CategoryController extends BaseController
     public function view($categorySlug)
     {
         $this->load->model('category/category');
+        $this->load->model('news/news');
 
-        $category = $this->category->findWithNews($categorySlug, 'slug');
+        $category = $this->category->findBySlug($categorySlug);
+        $paginate = null;
 
         if (! $category) {
             show_404();
         }
 
+        $this->category->newsCount($category);
+
+        if ($category->newsCount > 0) {
+            $paginate = $this->paginate($category->newsCount, 10);
+            $this->category->news($category, $paginate);
+        }
+
         $this->render('category/view', array(
-            'category' => $category
+            'category' => $category,
+            'paginate' => $paginate
         ));
     }
 

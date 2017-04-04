@@ -73,9 +73,10 @@ abstract class Controller extends Manager
         ]);
 
         $pagination = $this->pagination->create_links();
+
         return [
             'limit' => $limit,
-            'offset' => $this->pagination->cur_page * $this->pagination->per_page,
+            'offset' => ($this->pagination->cur_page - 1) * $this->pagination->per_page,
             'pagination' => $pagination
         ];
     }

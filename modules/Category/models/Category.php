@@ -76,6 +76,14 @@ class Category extends Model
     }
 
 
+    public function newsCount($category)
+    {
+        $this->load->model('news/news');
+        $this->db->where('categoryId', $category->id);
+        $category->newsCount = $this->news->count();
+    }
+
+
     /**
      * Tüm kayıtları döndürür
      *

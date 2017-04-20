@@ -10,5 +10,5 @@ application/config/production/database.php dosyasında veritabanı ayarlarını 
 Sonrasında ilk çalıştırıldığında kurulum işlemini kendisi gerçekleştirecektir.
 
 #### Newsbull-vendor
-Composer ile kurulum yapılamaması durumunda newsbull-vendor paketini indiriniz.
+Composer ile kurulum yapılamaması durumunda newsbull-vendor paketini indiriniz.<br />
 [newsbull-vendor](https://github.com/gurkanuzunca/newsbull-vendor/archive/master.zip)

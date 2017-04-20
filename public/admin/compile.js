@@ -7,7 +7,7 @@ module.exports = {
     script: "compiled.js",
     style: "compiled.css"
   },
-  
+
   path: "./",
   scripts: [
     "plugin/custom/bootstrap.filestyle.min.js",
@@ -36,7 +36,7 @@ module.exports = {
   }, {
     package: "fancybox",
     version: "*",
-    scripts: ['source/jquery.fancybox.min.css'],
-    styles: ['source/jquery.fancybox.css']
+    scripts: ['dist/jquery.fancybox.min.js'],
+    styles: ['dist/jquery.fancybox.min.css']
   }]
 };

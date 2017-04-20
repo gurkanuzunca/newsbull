@@ -36,7 +36,7 @@ module.exports = {
   }, {
     package: "fancybox",
     version: "*",
-    scripts: ['source/jquery.fancybox.pack.js'],
+    scripts: ['source/jquery.fancybox.min.css'],
     styles: ['source/jquery.fancybox.css']
   }]
 };

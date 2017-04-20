@@ -19,6 +19,7 @@ class CategoryController extends BaseController
         }
 
         $this->category->newsCount($category);
+        $category->news = array();
 
         if ($category->newsCount > 0) {
             $paginate = $this->paginate($category->newsCount, 10);

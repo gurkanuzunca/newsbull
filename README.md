@@ -11,4 +11,4 @@ Sonrasında ilk çalıştırıldığında kurulum işlemini kendisi gerçekleşt
 
 #### Newsbull-vendor
 Composer ile kurulum yapılamaması durumunda newsbull-vendor paketini indiriniz.<br />
-[newsbull-vendor](https://github.com/gurkanuzunca/newsbull-vendor/archive/master.zip)
+[Paketi indir](https://github.com/gurkanuzunca/newsbull-vendor/archive/master.zip) - [Detaylar](https://github.com/gurkanuzunca/newsbull-vendor)

@@ -47,17 +47,19 @@
 
                 <?php if (! empty($homeCategories)): ?>
                     <?php foreach ($homeCategories as $homeCategory): ?>
-                        <div class="main-news">
-                            <h2 class="section-title"><?php echo $homeCategory->title; ?></h2>
-                            <div class="row">
-                                <?php $this->view('news/widget/list-two', ['newscast' => $homeCategory->news]) ?>
+                        <?php if (! empty($homeCategory->news)): ?>
+                            <div class="main-news">
+                                <h2 class="section-title"><?php echo $homeCategory->title; ?></h2>
+                                <div class="row">
+                                    <?php $this->view('news/widget/list-two', ['newscast' => $homeCategory->news]) ?>
+                                </div>
+                                <div class="more">
+                                    <a class="more btn btn-default btn-sm" href="<?php echo clink([$homeCategory->slug]); ?>" title="<?php echo lang('Tüm Haberler'); ?>">
+                                        <i class="fa fa-newspaper-o"></i> <?php echo lang('Tüm Haberler'); ?>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="more">
-                                <a class="more btn btn-default btn-sm" href="<?php echo clink([$homeCategory->slug]); ?>" title="<?php echo lang('Tüm Haberler'); ?>">
-                                    <i class="fa fa-newspaper-o"></i> <?php echo lang('Tüm Haberler'); ?>
-                                </a>
-                            </div>
-                        </div>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>

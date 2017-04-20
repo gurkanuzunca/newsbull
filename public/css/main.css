@@ -143,7 +143,7 @@ a:hover {color: #5e8dcf;}
 
 
 
-#footer {font-size: 12px; border-top: 5px solid #5e8dcf; color: #777;}
+#footer {font-size: 12px; border-top: 5px solid #5e8dcf; color: #777; margin-top: 30px;}
 #footer a {color: #999;}
 #footer a:hover {color: #5e8dcf;}
 #footer .body {background-color: #111; padding: 25px 0;}

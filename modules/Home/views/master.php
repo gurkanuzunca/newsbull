@@ -84,40 +84,57 @@
 
 <?php $this->view($view); ?>
 
-<section id="footer">
-    <div class="container">
-        <div class="row">
-            <?php foreach ($this->menu->get('footer') as $menu): ?>
-                <div class="col-sm-3">
-                    <h4 class="caption"><?php echo $menu->title; ?></h4>
-                    <?php if (! empty($menu->childs)): ?>
-                        <nav>
-                            <ul>
-                                <?php foreach ($menu->childs as $child): ?>
-                                    <li><a href="<?php echo clink($child->link) ?>" title="<?php echo htmlspecialchars($child->hint); ?>"><?php echo $child->title; ?></a></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </nav>
-                    <?php endif; ?>
-                </div>
-            <?php endforeach; ?>
 
-            <div class="col-sm-3">
-                <h4 class="caption"><?php echo lang('Sosyal Medya'); ?></h4>
-                <div class="social">
-                    <ul>
-                        <?php foreach ($this->social->all() as $social): ?>
-                            <li><a href="<?php echo $social->link; ?>" title="<?php echo htmlspecialchars($social->title); ?>" target="_blank"><i class="<?php echo $social->icon; ?>"></i></a></li>
+<section id="footer">
+    <div class="body">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="logo">Newsbull</div>
+                    <div class="about">Haberin en yeni kaynağı olmak için bla bla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam laoreet sapien ac urna finibus, id congue neque egestas. Suspendisse sodales et augue eget elementum.</div>
+                </div>
+                <div class="col-sm-8 col-sm-offset-1">
+                    <div class="row">
+                        <?php foreach ($this->menu->get('footer') as $menu): ?>
+                            <div class="col-sm-4">
+                                <h4 class="caption"><?php echo $menu->title; ?></h4>
+                                <?php if (! empty($menu->childs)): ?>
+                                    <nav>
+                                        <ul>
+                                            <?php foreach ($menu->childs as $child): ?>
+                                                <li><a href="<?php echo clink($child->link) ?>" title="<?php echo htmlspecialchars($child->hint); ?>"><?php echo $child->title; ?></a></li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </nav>
+                                <?php endif; ?>
+                            </div>
                         <?php endforeach; ?>
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="foot">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    Newsbull - Haber bizden alınır :)
+                </div>
+                <div class="col-sm-6">
+                    <div class="social">
+                        <?php echo lang('Sosyal Medya'); ?>
+                        <ul>
+                            <?php foreach ($this->social->all() as $social): ?>
+                                <li><a href="<?php echo $social->link; ?>" title="<?php echo htmlspecialchars($social->title); ?>" target="_blank"><i class="<?php echo $social->icon; ?>"></i></a></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
-
-
 
 </body>
 </html>

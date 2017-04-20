@@ -143,15 +143,21 @@ a:hover {color: #5e8dcf;}
 
 
 
-#footer {background-color: #292929; color: #fff; padding: 30px 0; font-size: 13px;}
-#footer a {color: #ccc;}
-#footer a:hover {color: #fff;}
-#footer .caption {font-size: 16px; font-weight: 300; padding-bottom: 8px; border-bottom: 1px solid #444; margin-bottom: 10px;}
-#footer nav ul {list-style: none; margin: 0; padding: 0;}
-#footer nav ul li {padding-bottom: 3px;}
-#footer .social ul {list-style: none; margin: 0; padding: 0;}
-#footer .social ul li {display: inline-block;}
-#footer .social ul li a {width: 30px; height: 30px; display: block; font-size: 18px; line-height: 30px; text-align: center; background-color: #ccc; color: #fff;}
-#footer .social ul li a:hover {background-color: #fff;}
+#footer {font-size: 12px; border-top: 5px solid #5e8dcf; color: #777;}
+#footer a {color: #999;}
+#footer a:hover {color: #5e8dcf;}
+#footer .body {background-color: #111; padding: 25px 0;}
+#footer .body .caption {font-size: 15px; color: #eee;  font-weight: 300; padding-bottom: 8px; border-bottom: 1px dotted #333; margin-bottom: 10px;}
+#footer .body nav ul {list-style: none; margin: 0; padding: 0;}
+#footer .body nav ul li {padding-bottom: 3px;}
+#footer .body .logo {font-size: 30px; font-weight: 700; color: #5e8dcf;}
+#footer .body .about {line-height: 22px;}
+#footer .foot {background-color: #000; padding: 10px;  border-top: 1px solid #1c1c1c;  color: #ddd; line-height: 28px;}
+#footer .foot .social {text-align: right;}
+#footer .foot .social ul {list-style: none; margin: 0 0 0 5px; padding: 0; display: inline-block;}
+#footer .foot .social ul li {display: inline-block;}
+#footer .foot .social ul li a {width: 30px; height: 30px; border-radius: 50%; display: block; font-size: 18px; line-height: 30px; text-align: center; background-color: #333; color: #fff;}
+#footer .foot .social ul li a:hover {background-color: #5e8dcf;}
+#main {padding: 30px 0; min-height: 600px;}
 
 #main {padding: 30px 0; min-height: 500px;}

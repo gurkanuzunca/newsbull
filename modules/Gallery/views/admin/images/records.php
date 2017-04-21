@@ -31,7 +31,7 @@
                     <div class="pull-left">
                         <div class="btn-group">
                             <a class="btn btn-xs btn-info disabled"><?php echo $item->order ?></a>
-                            <?php if (! $this->input->get() || $this->input->get('page')): ?>
+                            <?php if (! $this->input->get() || $this->input->get('p')): ?>
                                 <a class="btn btn-xs btn-default sortable-handle"><i class="fa fa-arrows"></i></a>
                             <?php endif; ?>
                         </div>
@@ -51,9 +51,9 @@
         </div>
     </div>
 
-    <?php if (! empty($pagination)): ?>
+    <?php if (! empty($paginate)): ?>
         <div class="panel-footer">
-            <?php echo $pagination ?>
+            <?php echo $paginate['pagination'] ?>
         </div>
     <?php endif; ?>
 </div>

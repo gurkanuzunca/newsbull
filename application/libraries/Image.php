@@ -30,9 +30,7 @@ class Image
         }
 
         if ($this->ci->input->post($this->downloadInput)) {
-            $input = $this->ci->input->post($this->downloadInput);
-
-            if ($this->required === false && empty($input)) {
+            if ($this->required === false && empty($this->ci->input->post($this->downloadInput))) {
                 return (object) array('name' => $this->defaultImage);
             }
 

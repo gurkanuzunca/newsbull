@@ -1,8 +1,7 @@
 body {font-family: "Roboto", Arial, sans-serif; color: #333; background-color: #fff;}
 a, a:hover, a:active, a:focus {text-decoration: none; outline: 0;}
-a {transition: color 0.2s; color: #000;}
-a:hover {color: #5e8dcf;}
-.btn {border-radius: 0;}
+a {transition: 0.15s; color: #5e8dcf;}
+a:hover {color: #000;}
 .alert.alert-error {background-color: #f2dede; border-color: #ebccd1; color: #a94442;}
 
 
@@ -43,7 +42,8 @@ a:hover {color: #5e8dcf;}
 .category-news .item .image .category a {color: #000; font-size: 13px; display: block; padding: 2px 5px; font-style: italic; font-weight: 500;}
 .category-news .item .images {font-size: 12px; position: absolute; left: 15px; top: 15px; color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0,1); background-color: rgba(0,0,0,0.5); padding: 2px 5px;}
 .category-news .item .images i {color: #fff602;}
-.category-news .item .detail a {display: block;}
+.category-news .item .detail a {display: block; color: #000;}
+.category-news .item .detail a:hover {color: #5e8dcf;}
 .category-news .item .detail h3 {margin: 0 0 10px 0; font-weight: 500; font-size: 18px;}
 .category-news .item .detail p {color: #555;}
 .category-news .item .detail .date {font-size: 13px; color: #999;}
@@ -80,18 +80,39 @@ a:hover {color: #5e8dcf;}
 .main-news .item .image img {display: block; width: 100%; height: auto;}
 .main-news .item .image .category {position: absolute; left: 10px; top: 10px; background-color: #fff602;}
 .main-news .item .image .category a {color: #000; font-size: 13px; display: block; padding: 2px 5px; font-style: italic; font-weight: 500;}
-.main-news .item .detail a {display: block;}
+.main-news .item .detail a {display: block; color: #000;}
+.main-news .item .detail a:hover {color: #5e8dcf;}
 .main-news .item .detail h3 {margin: 0 0 10px 0; font-weight: 500; font-size: 18px; height: 78px; overflow: hidden;}
 .main-news .item .detail .date {font-size: 13px; color: #999;}
 .main-news .more {text-align: center;}
+
+.login-form .panel .panel-body {background-color: #f8f8f8;}
+.login-form .section-title {text-align: center;}
+.login-form .help-block {font-size: 12px;}
+
+
+.account {}
+.account .menu a {color: #5e8dcf;}
+.account .menu a:hover {color: #000;}
+
+.account .avatar {margin-bottom: 15px; text-align: center;}
+.account .avatar img {width: 100%; height: auto; display: block; margin-bottom: 5px;}
+.account .card h1 {margin: 0 0 10px 0; font-size: 22px; font-weight: 500;}
+.account .card ul li {margin-bottom: 5px;}
+.account .card ul li span {  color: #aaa;}
+.account .card ul li .fa {width: 15px; text-align: center;}
 
 
 #header {background-color: #fff;}
 #header .head {height: 80px; border-bottom: 1px solid #eee;}
 #header .head .logo {font-size: 40px; font-weight: 700; padding-top: 20px; line-height: 1;}
+#header .head .logo a {color: #000;}
+
 #header .head .form {padding-top: 25px;}
+/*
 #header .head .form .form-control {border-radius: 0;}
 #header .head .form .btn {border-radius: 0;}
+*/
 
 /* Navbar Reset */
 #header .menu .navbar {margin: 0; border-radius: 0; border: 0; background-color: transparent;}
@@ -132,7 +153,6 @@ a:hover {color: #5e8dcf;}
 #showcase .item .category {position: absolute; left: 15px; top: 15px; background-color: #fff602;}
 #showcase .item .category a {color: #000; font-size: 13px; display: block; padding: 2px 5px; font-style: italic; font-weight: 500;}
 
-
 #news .galleries {margin-bottom: 30px;}
 #news .galleries .row {margin: 0 -1px 0 0;}
 #news .galleries .column {padding: 0 1px 1px 0;}
@@ -140,7 +160,6 @@ a:hover {color: #5e8dcf;}
 #news .galleries .item .detail h3 {font-size: 18px;}
 #news .galleries .item.big .detail h3 {font-size: 24px; font-family: "Roboto", sans-serif;}
 #news .galleries .more {margin-top: 10px; text-align: center;}
-
 
 
 #footer {font-size: 12px; border-top: 5px solid #5e8dcf; color: #777; margin-top: 30px;}
@@ -159,5 +178,3 @@ a:hover {color: #5e8dcf;}
 #footer .foot .social ul li a {width: 30px; height: 30px; border-radius: 50%; display: block; font-size: 18px; line-height: 30px; text-align: center; background-color: #333; color: #fff;}
 #footer .foot .social ul li a:hover {background-color: #5e8dcf;}
 #main {padding: 30px 0; min-height: 600px;}
-
-#main {padding: 30px 0; min-height: 500px;}

@@ -59,3 +59,17 @@ $route['admin/install'] = 'InstallController/start';
 $route['admin/([a-z_-]+)/([a-zA-Z_-]+)(.*)?'] = '$1/$1AdminController/$2';
 
 $route['default_controller'] = 'Home/HomeController/index';
+
+$route['ara'] = 'Search/SearchController/search';
+$route['galeriler/([a-zA-Z0-9_-]+)'] = 'Gallery/GalleryController/view/$1';
+$route['galeriler'] = 'Gallery/GalleryController/index';
+$route['hesap/giris'] = 'User/UserController/login';
+$route['hesap/cikis'] = 'User/UserController/logout';
+$route['hesap/olustur'] = 'User/UserController/create';
+$route['hesap/profil'] = 'User/UserController/profile';
+$route['hesap/parola'] = 'User/UserController/password';
+$route['hesap/avatar'] = 'User/UserController/avatar';
+$route['hesap/bildirim'] = 'User/UserController/notification';
+$route['hesap'] = 'User/UserController/index';
+$route['([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)'] = 'News/NewsController/view/$1/$2';
+$route['([a-zA-Z0-9_-]+)'] = 'Category/CategoryController/view/$1';

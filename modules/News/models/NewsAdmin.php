@@ -48,6 +48,7 @@ class NewsAdmin extends AdminModel
         $this->db->insert($this->table, array(
             'categoryId' => $this->input->post('categoryId'),
             'title' => $this->input->post('title'),
+            'listTitle' => $this->input->post('listTitle'),
             'slug' => $this->makeSlug(),
             'summary' => $this->input->post('summary'),
             'image' => $data['image']->name,
@@ -84,6 +85,7 @@ class NewsAdmin extends AdminModel
             ->update($this->table, array(
                 'categoryId' => $this->input->post('categoryId'),
                 'title' => $this->input->post('title'),
+                'listTitle' => $this->input->post('listTitle'),
                 'slug' => $this->makeSlug(),
                 'summary' => $this->input->post('summary'),
                 'image' => $data['image']->name,

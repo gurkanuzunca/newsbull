@@ -8,6 +8,8 @@
                 <div class="panel-body">
                     <?php echo bsFormDropdown('categoryId', 'Kategori', ['required' => true, 'options' => prepareForSelect($this->appmodel->categories(), 'id', 'title', 'Seçiniz')]) ?>
                     <?php echo bsFormText('title', 'Başlık', ['required' => true]) ?>
+                    <?php echo bsFormText('listTitle', 'Liste Başlığı') ?>
+                    <p class="help-block">Başlık ile aynı ise boş bırakınız.</p>
                     <?php echo bsFormText('slug', 'Slug') ?>
                     <?php echo bsFormTextarea('summary', 'Özet') ?>
                     <?php echo bsFormImage('image', 'Görsel') ?>

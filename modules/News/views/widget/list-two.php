@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="image">
-                        <a href="<?php echo clink([$news->category->slug, $news->slug]); ?>" title="<?php echo htmlspecialchars($news->title); ?>">
-                            <img src="<?php echo getImage($news->image, 'news/thumb', 480, 300); ?>" alt="<?php echo htmlspecialchars($news->title); ?>">
+                        <a href="<?php echo clink([$news->category->slug, $news->slug]); ?>" title="<?php echo htmlspecialchars(! empty($news->listTitle) ? $news->listTitle : $news->title); ?>">
+                            <img src="<?php echo getImage($news->image, 'news/thumb', 480, 300); ?>" alt="<?php echo htmlspecialchars(! empty($news->listTitle) ? $news->listTitle : $news->title); ?>">
                         </a>
                         <?php if (isset($news->category)): ?>
                             <div class="category">
@@ -16,8 +16,8 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="detail">
-                        <a href="<?php echo clink([$news->category->slug, $news->slug]); ?>" title="<?php echo htmlspecialchars($news->title); ?>">
-                            <h3><?php echo $news->title; ?></h3>
+                        <a href="<?php echo clink([$news->category->slug, $news->slug]); ?>" title="<?php echo htmlspecialchars(! empty($news->listTitle) ? $news->listTitle : $news->title); ?>">
+                            <h3><?php echo ! empty($news->listTitle) ? $news->listTitle : $news->title; ?></h3>
                             <div class="date">
                                 <i class="fa fa-clock-o"></i> <?php echo makeDate($news->publishedAt)->dateWithName(); ?>
                             </div>

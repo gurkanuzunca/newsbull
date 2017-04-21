@@ -12,8 +12,8 @@
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <div class="image">
-                                                <a href="<?php echo clink([$item->category->slug, $item->slug]); ?>" title="<?php echo htmlspecialchars($item->title); ?>">
-                                                    <img src="<?php echo getImage($item->image, 'news/thumb', 480, 300); ?>" alt="<?php echo htmlspecialchars($item->title); ?>">
+                                                <a href="<?php echo clink([$item->category->slug, $item->slug]); ?>" title="<?php echo htmlspecialchars(! empty($item->listTitle) ? $item->listTitle : $item->title); ?>">
+                                                    <img src="<?php echo getImage($item->image, 'news/thumb', 480, 300); ?>" alt="<?php echo htmlspecialchars(! empty($item->listTitle) ? $item->listTitle : $item->title); ?>">
                                                 </a>
                                                 <?php if (isset($item->category)): ?>
                                                     <div class="category">
@@ -24,8 +24,8 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="detail">
-                                                <a href="<?php echo clink([$item->category->slug, $item->slug]); ?>" title="<?php echo htmlspecialchars($item->title); ?>">
-                                                    <h3><?php echo $item->title; ?></h3>
+                                                <a href="<?php echo clink([$item->category->slug, $item->slug]); ?>" title="<?php echo htmlspecialchars(! empty($item->listTitle) ? $item->listTitle : $item->title); ?>">
+                                                    <h3><?php echo ! empty($item->listTitle) ? $item->listTitle : $item->title; ?></h3>
                                                     <p><?php echo $item->summary; ?></p>
                                                     <div class="date">
                                                         <i class="fa fa-clock-o"></i> <?php echo makeDate($item->publishedAt)->dateWithName(); ?>

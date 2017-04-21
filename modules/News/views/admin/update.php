@@ -13,6 +13,8 @@
                         'options' => prepareForSelect($this->appmodel->categories(), 'id', 'title', 'Seçiniz')]
                     ) ?>
                     <?php echo bsFormText('title', 'Başlık', ['required' => true, 'value' => $record->title]) ?>
+                    <?php echo bsFormText('listTitle', 'Liste Başlığı', ['value' => $record->listTitle]) ?>
+                    <p class="help-block">Başlık ile aynı ise boş bırakınız.</p>
                     <?php echo bsFormText('slug', 'Slug', ['value' => $record->slug]) ?>
                     <?php echo bsFormTextarea('summary', 'Özet', ['value' => $record->summary]) ?>
                     <?php echo bsFormImage('image', 'Görsel', ['value' => $record->image, 'path' => 'public/upload/news/thumb']) ?>

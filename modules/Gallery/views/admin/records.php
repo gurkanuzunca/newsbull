@@ -62,7 +62,7 @@
                 <td class="text-center">
                     <div class="btn-group">
                         <a class="btn btn-xs btn-info disabled"><?php echo $item->order ?></a>
-                        <?php if (! $this->input->get() || $this->input->get('page')): ?>
+                        <?php if (! $this->input->get() || $this->input->get('p')): ?>
                             <a class="btn btn-xs btn-default sortable-handle"><i class="fa fa-arrows"></i></a>
                         <?php endif; ?>
                     </div>

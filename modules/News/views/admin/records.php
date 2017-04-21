@@ -40,7 +40,12 @@
                     <input type="checkbox" class="checkall-item" value="<?php echo $item->id ?>" />
                 </td>
                 <td><?php echo $item->id ?></td>
-                <td><?php echo $item->title ?></td>
+                <td>
+                    <?php echo $item->title ?>
+                    <?php if (! empty($item->listTitle)): ?>
+                        <i class="fa fa-info-circle text-primary" data-toggle="tooltip" data-placement="top" title="Liste Başlığı: <?php echo htmlspecialchars($item->listTitle) ?>"></i>
+                    <?php endif; ?>
+                </td>
                 <td><?php echo $item->slug ?></td>
                 <td><?php echo $item->visited ?></td>
                 <td><?php echo $this->date->set($item->publishedAt)->datetimeWithName() ?></td>
@@ -69,9 +74,9 @@
         </tbody>
     </table>
 
-    <?php if (! empty($pagination)): ?>
+    <?php if (! empty($paginate)): ?>
         <div class="panel-footer">
-            <?php echo $pagination ?>
+            <?php echo $paginate['pagination'] ?>
         </div>
     <?php endif; ?>
 </div>

@@ -10,14 +10,14 @@ if (empty($mostVisited)){
     <?php foreach ($mostVisited as $news): ?>
         <div class="item">
             <div class="image">
-                <img src="<?php echo getImage($news->image, 'news/thumb', 480, 300); ?>" alt="<?php echo htmlspecialchars($news->title); ?>">
+                <img src="<?php echo getImage($news->image, 'news/thumb', 480, 300); ?>" alt="<?php echo htmlspecialchars(! empty($news->listTitle) ? $news->listTitle : $news->title); ?>">
                 <div class="category">
                     <a href="<?php echo clink([$news->category->slug]); ?>" title="<?php echo htmlspecialchars($news->category->title); ?>"><?php echo $news->category->title; ?></a>
                 </div>
             </div>
             <div class="detail">
-                <a href="<?php echo clink([$news->category->slug, $news->slug]); ?>" title="<?php echo htmlspecialchars($news->title); ?>">
-                    <h3><?php echo $news->title; ?></h3>
+                <a href="<?php echo clink([$news->category->slug, $news->slug]); ?>" title="<?php echo htmlspecialchars(! empty($news->listTitle) ? $news->listTitle : $news->title); ?>">
+                    <h3><?php echo ! empty($news->listTitle) ? $news->listTitle : $news->title; ?></h3>
                     <div class="date">
                         <i class="fa fa-clock-o"></i> <?php echo makeDate($news->publishedAt)->dateWithName(); ?>
                     </div>

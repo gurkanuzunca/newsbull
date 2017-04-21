@@ -77,9 +77,9 @@
         </tbody>
     </table>
 
-    <?php if (! empty($pagination)): ?>
+    <?php if (! empty($paginate)): ?>
         <div class="panel-footer">
-            <?php echo $pagination ?>
+            <?php echo $paginate['pagination'] ?>
         </div>
     <?php endif; ?>
 </div>

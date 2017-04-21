@@ -91,7 +91,7 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="logo">Newsbull</div>
-                    <div class="about">Haberin en yeni kaynağı olmak için bla bla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam laoreet sapien ac urna finibus, id congue neque egestas. Suspendisse sodales et augue eget elementum.</div>
+                    <div class="about">Açık kaynak haber sitesi yazılımıdır. <strong>Newsbull henüz kararlı sürüm değildir.</strong> Geliştirilmeye devam etmektedir. Geliştirmeleri Github ve Trello üzerinden takip edebilirsiniz. Hata, görüş ve önerilerinizi Github aracılı ile iletebilirsiniz.</div>
                 </div>
                 <div class="col-sm-8 col-sm-offset-1">
                     <div class="row">

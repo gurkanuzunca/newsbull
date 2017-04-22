@@ -84,9 +84,11 @@ class UserController extends BaseController
             }
 
             if (! $this->alert->has('error')) {
-                $success = $this->user->create();
+                $verifyToken = $this->user->create();
 
-                if ($success) {
+                if ($verifyToken) {
+                    $this->load->library('user/UserMailer');
+                    $this->usermailer->sendEmailVerify($this->input->post('email'), array('token' => $verifyToken));
                     $this->alert->set('success', 'Hesabınız oluşturuldu. Lütfen e-mail adresinize gönderilen doğrulama bağlantısına tıklayarak e-mail adresinizi doğrulayın.');
                     redirect(clink(['@user', 'giris']));
                 }

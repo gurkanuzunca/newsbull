@@ -17,3 +17,4 @@ $lang['tum-haberler'] = 'Tüm Haberler';
 $lang['tum-haberler'] = 'Tüm Haberler';
 $lang['goruntulenme'] = 'Görüntülenme';
 $lang['sonraki'] = 'Sonraki';
+$lang['benzer-haberler'] = 'Benzer Haberler';

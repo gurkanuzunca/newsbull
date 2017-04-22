@@ -167,8 +167,15 @@ class Installer extends InstallManager
                     'arguments' => json_encode(array()),
                     'language' => $language,
                 ),
+                array(
+                    'name' => 'smtpFromEmail',
+                    'title' => 'Gönderici Email Adresi',
+                    'value' => null,
+                    'type' => 'text',
+                    'arguments' => json_encode(array()),
+                    'language' => $language,
+                )
             );
-
         }
 
         $this->db->insert_batch('options', $insert);

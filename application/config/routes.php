@@ -70,6 +70,7 @@ $route['hesap/profil'] = 'User/UserController/profile';
 $route['hesap/parola'] = 'User/UserController/password';
 $route['hesap/avatar'] = 'User/UserController/avatar';
 $route['hesap/bildirim'] = 'User/UserController/notification';
+$route['hesap/dogrula'] = 'User/UserController/verify';
 $route['hesap'] = 'User/UserController/index';
 $route['([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)'] = 'News/NewsController/view/$1/$2';
 $route['([a-zA-Z0-9_-]+)'] = 'Category/CategoryController/view/$1';

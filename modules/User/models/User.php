@@ -98,16 +98,18 @@ class User extends Model
     /**
      * Yeni hesap oluşturma.
      *
-     * @return bool
+     * @return bool|string
      */
     public function create()
     {
+        $verifyToken = hash($this->hashAlgo, microtime());
         $this->db->insert($this->table, array(
             'username' => $this->input->post('name') .' '. $this->input->post('surname'),
             'email' => $this->input->post('email'),
             'password' => hash($this->hashAlgo, $this->input->post('password')),
             'name' => $this->input->post('name'),
             'surname' => $this->input->post('surname'),
+            'verifyToken' => $verifyToken,
             'createdAt' => $this->date->set()->mysqlDatetime(),
             'updatedAt' => $this->date->set()->mysqlDatetime()
         ));
@@ -115,7 +117,7 @@ class User extends Model
         $insertId = $this->db->insert_id();
 
         if ($insertId > 0) {
-            return true;
+            return $verifyToken;
         }
 
         return false;

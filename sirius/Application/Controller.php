@@ -40,7 +40,6 @@ abstract class Controller extends \MX_Controller
 
         $this->lang->load('application');
 
-
         /**
          * Site genel ayarları atama
          */
@@ -53,7 +52,6 @@ abstract class Controller extends \MX_Controller
         foreach ($results as $result) {
             $this->stack->set("options.{$result->name}", $result->value);
         }
-
 
         /**
          * Belirtilen modüle argümanlarını atama
@@ -87,11 +85,7 @@ abstract class Controller extends \MX_Controller
             }
 
         }
-
-
-
     }
-
 
     /**
      * Form Validate.
@@ -140,7 +134,6 @@ abstract class Controller extends \MX_Controller
         ];
     }
 
-
     public function json($data)
     {
         $this->output
@@ -164,8 +157,6 @@ abstract class Controller extends \MX_Controller
         $this->load->view('home/master', $data);
     }
 
-
-
     /**
      * Kurulumun yapılıp yapılmadığını kontrol eder.
      * Kurulum yapılmadıysa kurulum ekranına geçer.
@@ -176,7 +167,6 @@ abstract class Controller extends \MX_Controller
             redirect('admin/install');
         }
     }
-
 
     /**
      * Modül verilerini çeker.
@@ -208,7 +198,6 @@ abstract class Controller extends \MX_Controller
 
         return $module;
     }
-
 
     protected function setMeta($record, $options = [])
     {

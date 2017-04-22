@@ -2,6 +2,13 @@
 
 use Controllers\BaseController;
 
+/**
+ * Class UserController
+ *
+ * @property Auth $auth
+ * @property User $user
+ * @property UserMailer $usermailer
+ */
 class UserController extends BaseController
 {
     public $module = 'user';
@@ -16,7 +23,7 @@ class UserController extends BaseController
      * Ziyaretçiye özel sayfalar.
      * @var array
      */
-    private $guestActions = array('login', 'create');
+    private $guestActions = array('login', 'create', 'verify');
 
 
     public function index()
@@ -98,6 +105,33 @@ class UserController extends BaseController
         }
 
         $this->render('user/create', array());
+    }
+
+
+    public function verify($token)
+    {
+        $this->middleware();
+        $success = false;
+
+        // Token yoksa hata döndürülür.
+        if (empty($token)) {
+            $this->alert->set('error', 'Doğrulama işlemi yapılamadı.');
+            redirect(clink(['@user', 'giris']));
+        }
+
+        $user = $this->user->findByCriteria(['verifyToken' => $token, 'status' => 'unverified']);
+
+        if ($user) {
+            $success = $this->user->verify($user);
+        }
+
+        if ($success === true) {
+            $this->alert->set('success', 'Tebrikler! E-mail adresiniz doğrulandı.');
+        } else {
+            $this->alert->set('error', 'Doğrulama işlemi yapılamadı.');
+        }
+
+        redirect(clink(['@user', 'giris']));
     }
 
 

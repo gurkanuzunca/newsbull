@@ -152,7 +152,7 @@ class User extends Model
      */
     public function createRememberToken($user)
     {
-        $token = md5(microtime());
+        $token = hash($this->hashAlgo, microtime());
 
         $this->db
             ->where('id', $user->id)
@@ -164,6 +164,29 @@ class User extends Model
             $user->rememberToken = $token;
 
             return $token;
+        }
+
+        return false;
+    }
+
+
+    /**
+     * Kullanıcı için yeni token üretir ve kaydı günceller.
+     *
+     * @param object $user
+     * @return bool|string
+     */
+    public function verify($user)
+    {
+        $this->db
+            ->where('id', $user->id)
+            ->update($this->table, array(
+                'verifyToken' => null,
+                'status' => 'verified',
+            ));
+
+        if ($this->db->affected_rows() > 0) {
+            return true;
         }
 
         return false;

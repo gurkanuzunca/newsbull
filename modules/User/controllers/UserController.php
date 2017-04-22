@@ -23,7 +23,7 @@ class UserController extends BaseController
      * Ziyaretçiye özel sayfalar.
      * @var array
      */
-    private $guestActions = array('login', 'create', 'verify');
+    private $guestActions = array('login', 'create', 'verify', 'forgotPassword');
 
 
     public function index()
@@ -97,6 +97,7 @@ class UserController extends BaseController
                     $this->load->library('user/UserMailer');
                     $this->usermailer->sendEmailVerify($this->input->post('email'), array('token' => $verifyToken));
                     $this->alert->set('success', 'Hesabınız oluşturuldu. Lütfen e-mail adresinize gönderilen doğrulama bağlantısına tıklayarak e-mail adresinizi doğrulayın.');
+
                     redirect(clink(['@user', 'giris']));
                 }
             }
@@ -113,12 +114,6 @@ class UserController extends BaseController
         $this->middleware();
         $success = false;
 
-        // Token yoksa hata döndürülür.
-        if (empty($token)) {
-            $this->alert->set('error', 'Doğrulama işlemi yapılamadı.');
-            redirect(clink(['@user', 'giris']));
-        }
-
         $user = $this->user->findByCriteria(['verifyToken' => $token, 'status' => 'unverified']);
 
         if ($user) {
@@ -132,6 +127,39 @@ class UserController extends BaseController
         }
 
         redirect(clink(['@user', 'giris']));
+    }
+
+    public function forgotPassword()
+    {
+        $this->middleware();
+
+        if ($this->input->post()) {
+            $this->validate([
+                'email' => array('required', ''),
+            ]);
+
+            if (! $this->alert->has('error')) {
+                $user = $this->user->findByCriteria([
+                    'email' => $this->input->post('email')
+                ]);
+
+                if ($user) {
+                    $this->user->createPasswordToken($user);
+                    $this->load->library('user/UserMailer');
+                    $this->usermailer->sendForgotPassword($user->email, array('token' => $user->passwordToken));
+
+                    $this->alert->set('success', 'Parola sıfırlama için e-mail adresinizi kontrol ediniz.');
+                    redirect(clink(['@user', 'parolami-unuttum']));
+                }
+            } else {
+                $this->alert->clear('error');
+                $this->alert->set('error', 'E-mail adresi bulunamadı.');
+
+                redirect(clink(['@user', 'parolami-unuttum']));
+            }
+        }
+
+        $this->render('user/forgot-password', array());
     }
 
 

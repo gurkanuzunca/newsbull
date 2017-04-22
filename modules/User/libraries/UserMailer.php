@@ -21,13 +21,13 @@ class UserMailer extends Mailer
     }
 
     /**
-     * Şifremi unuttum maili
+     * Parolamı unuttum maili
      *
      * @param string $to Alıcı email
      * @param mixed $data View da render edilecek değişkenler
      * @param string $subject
      */
-    public function sendForgotPassword($to, $data = array(), $subject = 'Şifremi Unuttum')
+    public function sendForgotPassword($to, $data = array(), $subject = 'Parolamı Unuttum')
     {
         $this->mailer->to($to);
         $this->mailer->subject($subject);

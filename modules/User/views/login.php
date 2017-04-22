@@ -15,7 +15,7 @@
                                 <input class="form-control" name="email" id="form-email" type="email" required="required" autofocus="autofocus" tabindex="1">
                             </div>
                             <div class="form-group">
-                                <small class="pull-right"><a href="<?php echo clink(['@user', 'sifremi-unuttum']); ?>">Şifremi Unuttum?</a> </small>
+                                <small class="pull-right"><a href="<?php echo clink(['@user', 'parolami-unuttum']); ?>">Parolamı Unuttum?</a> </small>
                                 <label for="form-password">Parolanız</label>
                                 <input class="form-control" name="password" id="form-password" type="password" required="required" tabindex="2">
                             </div>

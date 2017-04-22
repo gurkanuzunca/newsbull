@@ -169,9 +169,8 @@ class User extends Model
         return false;
     }
 
-
     /**
-     * Kullanıcı için yeni token üretir ve kaydı günceller.
+     * Kullanıcıyı doğrular.
      *
      * @param object $user
      * @return bool|string
@@ -187,6 +186,32 @@ class User extends Model
 
         if ($this->db->affected_rows() > 0) {
             return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Kullanıcıyı doğrular.
+     *
+     * @param object $user
+     * @return bool|string
+     */
+    public function createPasswordToken($user)
+    {
+        $token = hash($this->hashAlgo, microtime());
+
+        $this->db
+            ->where('id', $user->id)
+            ->update($this->table, array(
+                'passwordToken' => $token,
+                'passwordTokenDate' => $this->date->set()->mysqlDatetime(),
+            ));
+
+        if ($this->db->affected_rows() > 0) {
+            $user->passwordToken = $token;
+
+            return $token;
         }
 
         return false;

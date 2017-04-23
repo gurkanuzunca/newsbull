@@ -137,6 +137,7 @@ CREATE TABLE `news` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `categoryId` int(10) unsigned NOT NULL,
   `title` varchar(255) NOT NULL,
+  `listTitle` varchar(255) DEFAULT NULL,
   `slug` varchar(255) NOT NULL,
   `summary` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,

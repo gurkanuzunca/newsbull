@@ -23,16 +23,20 @@ class UserController extends BaseController
      * Ziyaretçiye özel sayfalar.
      * @var array
      */
-    private $guestActions = array('login', 'create', 'verify', 'forgotPassword');
+    private $guestActions = array('login', 'create', 'verify', 'forgotPassword', 'resetPassword');
 
-
+    /**
+     * Üye dashboard
+     */
     public function index()
     {
         $this->middleware();
         $this->render('user/index', array());
     }
 
-
+    /**
+     * Üye giriş sayfası
+     */
     public function login()
     {
         $this->middleware();
@@ -52,26 +56,29 @@ class UserController extends BaseController
                 if ($logged === true) {
                     redirect(clink(['@user']));
                 }
-            } else {
-                $this->alert->clear('error');
-                $this->alert->set('error', 'Giriş bilgileri hatalı.');
-
-                redirect(clink(['@user', 'giris']));
             }
+
+            $this->alert->clear('error');
+            $this->alert->set('error', 'Giriş bilgileri hatalı.');
+
+            redirect(clink(['@user', 'giris']));
         }
 
         $this->render('user/login', array());
     }
 
-
-
+    /**
+     * Oturum kapatma.
+     */
     public function logout()
     {
         $this->auth->logout();
         redirect(clink(['@home']));
     }
 
-
+    /**
+     * Yeni kullanıcı oluşturma.
+     */
     public function create()
     {
         $this->middleware();
@@ -99,6 +106,8 @@ class UserController extends BaseController
                     $this->alert->set('success', 'Hesabınız oluşturuldu. Lütfen e-mail adresinize gönderilen doğrulama bağlantısına tıklayarak e-mail adresinizi doğrulayın.');
 
                     redirect(clink(['@user', 'giris']));
+                } else {
+                    $this->alert->set('error', 'Hata oluştu. Lütfen tekrar deneyiniz.');
                 }
             }
 
@@ -108,7 +117,11 @@ class UserController extends BaseController
         $this->render('user/create', array());
     }
 
-
+    /**
+     * Kullanıcı doğrulama.
+     *
+     * @param string $token
+     */
     public function verify($token)
     {
         $this->middleware();
@@ -129,6 +142,9 @@ class UserController extends BaseController
         redirect(clink(['@user', 'giris']));
     }
 
+    /**
+     * Parolamı unuttum. Parola sıfırlama talebi oluşturma.
+     */
     public function forgotPassword()
     {
         $this->middleware();
@@ -151,18 +167,58 @@ class UserController extends BaseController
                     $this->alert->set('success', 'Parola sıfırlama için e-mail adresinizi kontrol ediniz.');
                     redirect(clink(['@user', 'parolami-unuttum']));
                 }
-            } else {
-                $this->alert->clear('error');
-                $this->alert->set('error', 'E-mail adresi bulunamadı.');
-
-                redirect(clink(['@user', 'parolami-unuttum']));
             }
+
+            $this->alert->clear('error');
+            $this->alert->set('error', 'E-mail adresi bulunamadı.');
+
+            redirect(clink(['@user', 'parolami-unuttum']));
         }
 
         $this->render('user/forgot-password', array());
     }
 
+    /**
+     * Parola sıfırlama.
+     *
+     * @param string $token
+     */
+    public function resetPassword($token)
+    {
+        $this->middleware();
+        $user = $this->user->findByCriteria(['passwordToken' => $token, 'passwordTokenDate >' => $this->date->set('-1 hour')->mysqlDatetime()]);
 
+        if (! $user) {
+            $this->alert->set('error', 'Parolamı unuttum? bağlantısı doğrulanamadı. Lütfen tekrar parola sıfırlama talebinde bulununuz.');
+            redirect(clink(['@user', 'parolami-unuttum']));
+        }
+
+        if ($this->input->post()) {
+            $this->validate([
+                'password' => array('required|min_length[6]', 'Lütfen geçerli bir parola yazınız.'),
+            ]);
+
+            if (! $this->alert->has('error')) {
+                $success = $this->user->resetPassword($user);
+
+                if ($success === true) {
+                    $this->alert->set('success', 'Parola sıfırlama işlemi tamamlandı. Giriş yapabilirsiniz.');
+
+                    redirect(clink(['@user', 'giris']));
+                } else {
+                    $this->alert->set('error', 'Hata oluştu. Lütfen tekrar deneyiniz.');
+                }
+            }
+
+            redirect(clink(['@user', 'parolami-sifirla', $token]));
+        }
+
+        $this->render('user/reset-password', array());
+    }
+
+    /**
+     * Profil sayfası
+     */
     public function profile()
     {
         $this->middleware();

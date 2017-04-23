@@ -31,7 +31,7 @@ class UserMailer extends Mailer
     {
         $this->mailer->to($to);
         $this->mailer->subject($subject);
-        $this->mailer->message($this->ci->load->view('user/mailer/forgot-password', $data, true));
+        $this->mailer->message($this->render('user/mailer/forgot-password', $data));
         $this->mailer->send();
     }
 

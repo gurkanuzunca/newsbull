@@ -45,7 +45,7 @@ class User extends Model
     }
 
     /**
-     * Slug'a göre kaydı bulur.
+     * Kritere göre kaydı bulur.
      *
      * @param array $criteria
      * @param string $hash Hash uygulanacak değişken.
@@ -192,7 +192,7 @@ class User extends Model
     }
 
     /**
-     * Kullanıcıyı doğrular.
+     * Kullanıcı parola sıfırlama token üretir.
      *
      * @param object $user
      * @return bool|string
@@ -212,6 +212,30 @@ class User extends Model
             $user->passwordToken = $token;
 
             return $token;
+        }
+
+        return false;
+    }
+
+
+    /**
+     * Kullanıcıyı doğrular.
+     *
+     * @param object $user
+     * @return bool
+     */
+    public function resetPassword($user)
+    {
+        $this->db
+            ->where('id', $user->id)
+            ->update($this->table, array(
+                'password' => hash($this->hashAlgo, $this->input->post('password')),
+                'passwordToken' => null,
+                'passwordTokenDate' => null
+            ));
+
+        if ($this->db->affected_rows() > 0) {
+            return true;
         }
 
         return false;

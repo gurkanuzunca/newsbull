@@ -3,10 +3,21 @@
 
 class Date
 {
-
+    /**
+     * @var DateTimeZone $timezone
+     */
     private $timezone;
+
+    /**
+     * @var DateTime $date
+     */
     private $date;
+
+    /**
+     * @var DateInterval $diff
+     */
     private $diff;
+
     private $month = array(1 => 'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık');
     private $day = array(1 => 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar');
 
@@ -36,7 +47,6 @@ class Date
     {
         $diff = new DateTime($datetime, $this->timezone);
         $this->diff = $this->date->diff($diff);
-        $this->date = $diff;
 
         return $this;
     }
@@ -60,12 +70,10 @@ class Date
         return $string;
     }
 
-
     public function diffDay()
     {
         return $this->diff->d;
     }
-
 
     public function diffHour()
     {
@@ -81,7 +89,6 @@ class Date
     {
         return $this->diff->invert;
     }
-
 
     public function day()
     {
@@ -220,5 +227,9 @@ class Date
         return $this->date->format($format);
     }
 
+    public function getDateTime()
+    {
+        return $this->date;
+    }
 }
 

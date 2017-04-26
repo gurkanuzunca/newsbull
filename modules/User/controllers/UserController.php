@@ -35,6 +35,15 @@ class UserController extends BaseController
     }
 
     /**
+     * Profil sayfası
+     */
+    public function profile()
+    {
+        $this->middleware();
+        $this->render('user/profile', array());
+    }
+
+    /**
      * Üye giriş sayfası
      */
     public function login()
@@ -214,15 +223,6 @@ class UserController extends BaseController
         }
 
         $this->render('user/reset-password', array());
-    }
-
-    /**
-     * Profil sayfası
-     */
-    public function profile()
-    {
-        $this->middleware();
-        $this->render('user/profile', array());
     }
 
     /**

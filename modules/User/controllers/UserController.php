@@ -101,7 +101,6 @@ class UserController extends BaseController
         $this->render('user/password', array());
     }
 
-
     /**
      * Avatar güncelleme sayfası
      */

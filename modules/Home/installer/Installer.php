@@ -23,8 +23,9 @@ class Installer extends InstallManager
         'news',
         'galleries',
         'gallery_images',
+        'users',
         'slider',
-        'socials'
+        'socials',
     );
 
     /**
@@ -41,6 +42,17 @@ class Installer extends InstallManager
                 // Gallery
                 'galeriler' => 'Gallery/GalleryController/index',
                 'galeriler/([a-zA-Z0-9_-]+)' => 'Gallery/GalleryController/view/$1',
+                // User
+                'hesap/giris' => 'User/UserController/login',
+                'hesap/cikis' => 'User/UserController/logout',
+                'hesap/olustur' => 'User/UserController/create',
+                'hesap/profil' => 'User/UserController/profile',
+                'hesap/parola' => 'User/UserController/password',
+                'hesap/avatar' => 'User/UserController/avatar',
+                'hesap/parolami-unuttum' => 'User/UserController/forgotPassword',
+                'hesap/parolami-sifirla/(.+)' => 'User/UserController/resetPassword/$1',
+                'hesap/dogrula/(.+)' => 'User/UserController/verify/$1',
+                'hesap' => 'User/UserController/index',
                 // News
                 '([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)' => 'News/NewsController/view/$1/$2',
                 // Categories
@@ -58,6 +70,7 @@ class Installer extends InstallManager
             'gallery' => 'Galeriler',
             'menu' => 'Menü Yönetimi',
             'slider' => 'Slider',
+            'user' => 'Üyeler',
             'search' => 'Arama',
             'social' => 'Sosyal Medya',
         );

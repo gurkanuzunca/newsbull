@@ -30,7 +30,9 @@ class Installer extends InstallManager
                 'hesap/profil' => 'User/UserController/profile',
                 'hesap/parola' => 'User/UserController/password',
                 'hesap/avatar' => 'User/UserController/avatar',
-                'hesap/bildirim' => 'User/UserController/notification',
+                'hesap/parolami-unuttum' => 'User/UserController/forgotPassword',
+                'hesap/parolami-sifirla/(.+)' => 'User/UserController/resetPassword/$1',
+                'hesap/dogrula/(.+)' => 'User/UserController/verify/$1',
                 'hesap' => 'User/UserController/index',
             ),
             'uri' => 'hesap'

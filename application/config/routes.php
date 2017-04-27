@@ -69,7 +69,6 @@ $route['hesap/olustur'] = 'User/UserController/create';
 $route['hesap/profil'] = 'User/UserController/profile';
 $route['hesap/parola'] = 'User/UserController/password';
 $route['hesap/avatar'] = 'User/UserController/avatar';
-$route['hesap/bildirim'] = 'User/UserController/notification';
 $route['hesap/dogrula/(.+)'] = 'User/UserController/verify/$1';
 $route['hesap/parolami-unuttum'] = 'User/UserController/forgotPassword';
 $route['hesap/parolami-sifirla/(.+)'] = 'User/UserController/resetPassword/$1';

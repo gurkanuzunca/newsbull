@@ -124,6 +124,66 @@ class User extends Model
     }
 
     /**
+     * Profil güncelleme.
+     *
+     * @param object $user
+     * @return bool
+     */
+    public function update($user)
+    {
+        $this->db
+            ->where('id', $user->id)
+            ->update($this->table, array(
+                'username' => $this->input->post('username'),
+                'name' => $this->input->post('name'),
+                'surname' => $this->input->post('surname'),
+                'updatedAt' => $this->date->set()->mysqlDatetime()
+            ));
+
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Parola değiştirme.
+     *
+     * @param object $user
+     * @return bool
+     */
+    public function changePassword($user)
+    {
+        $this->db
+            ->where('id', $user->id)
+            ->update($this->table, array(
+                'password' => hash($this->hashAlgo, $this->input->post('newpassword')),
+                'updatedAt' => $this->date->set()->mysqlDatetime()
+            ));
+
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+
+    /**
+     * Eski parola ile uyuşma kontrolü.
+     *
+     * @param object $user
+     * @return bool
+     */
+    public function matchPassword($user)
+    {
+        $oldPassword = hash($this->hashAlgo, $this->input->post('oldpassword'));
+
+        return $oldPassword === $user->password;
+    }
+
+    /**
      * E-mail adresinin kullanım durumunu kontrol eder.
      * $this->find() ile yapılabilirsi ancak find() sadece doğrulanmış kayıtları döndürüyor.
      *
@@ -173,7 +233,7 @@ class User extends Model
      * Kullanıcıyı doğrular.
      *
      * @param object $user
-     * @return bool|string
+     * @return bool
      */
     public function verify($user)
     {

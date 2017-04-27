@@ -17,13 +17,13 @@ class UserController extends BaseController
      * Üyelere özel sayfalar.
      * @var array
      */
-    private $loggedActions = array('index', 'profile', 'password', 'avatar', 'notification');
+    private $loggedActions = array('index', 'profil', 'parola', 'avatar', 'bildirim', 'cikis');
 
     /**
      * Ziyaretçiye özel sayfalar.
      * @var array
      */
-    private $guestActions = array('login', 'create', 'verify', 'forgotPassword', 'resetPassword');
+    private $guestActions = array('giris', 'dogrula', 'parolami-unuttum', 'parolami-sifirla');
 
     /**
      * Üye dashboard
@@ -40,7 +40,65 @@ class UserController extends BaseController
     public function profile()
     {
         $this->middleware();
+
+        if ($this->input->post()) {
+            $this->validate([
+                'name' => array('required', 'Lütfen adınızı yazınız.'),
+                'surname' => array('required', 'Lütfen soyadınızı yazınız.'),
+                'username' => array('required', 'Lütfen kullanıcı adı yazınız.')
+            ]);
+
+            if (! $this->alert->has('error')) {
+                $success = $this->user->update($this->getUser());
+
+                if ($success) {
+                    $this->alert->set('success', 'Profiliniz başarıyla güncellendi.');
+                    redirect(clink(['@user', 'profil']));
+                }
+
+                $this->alert->set('error', 'Hata oluştu. Lütfen tekrar deneyiniz.');
+            }
+
+            redirect(clink(['@user', 'profil']));
+        }
+
         $this->render('user/profile', array());
+    }
+
+    /**
+     * Parola sayfası
+     */
+    public function password()
+    {
+        $this->middleware();
+
+        if ($this->input->post()) {
+            $this->validate([
+                'oldpassword' => array('required', 'Lütfen şuanki parolanızı yazınız.'),
+                'newpassword' => array('required|min_length[6]', 'Lütfen geçerli bir parola yazınız.')
+            ]);
+
+            if (! $this->alert->has('error')) {
+                if ($this->user->matchPassword($this->getUser()) === false) {
+                    $this->alert->set('error', 'Şuanki parolanız hatalı.');
+                }
+            }
+
+            if (! $this->alert->has('error')) {
+                $success = $this->user->changePassword($this->getUser());
+
+                if ($success) {
+                    $this->alert->set('success', 'Parolanız başarıyla güncellendi.');
+                    redirect(clink(['@user', 'parola']));
+                }
+
+                $this->alert->set('error', 'Hata oluştu. Lütfen tekrar deneyiniz.');
+            }
+
+            redirect(clink(['@user', 'parola']));
+        }
+
+        $this->render('user/password', array());
     }
 
     /**
@@ -115,12 +173,12 @@ class UserController extends BaseController
                     $this->alert->set('success', 'Hesabınız oluşturuldu. Lütfen e-mail adresinize gönderilen doğrulama bağlantısına tıklayarak e-mail adresinizi doğrulayın.');
 
                     redirect(clink(['@user', 'giris']));
-                } else {
-                    $this->alert->set('error', 'Hata oluştu. Lütfen tekrar deneyiniz.');
                 }
+
+                $this->alert->set('error', 'Hata oluştu. Lütfen tekrar deneyiniz.');
             }
 
-            redirect(clink(['@user', 'create']));
+            redirect(clink(['@user', 'olustur']));
         }
 
         $this->render('user/create', array());

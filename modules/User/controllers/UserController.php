@@ -101,6 +101,44 @@ class UserController extends BaseController
         $this->render('user/password', array());
     }
 
+
+    /**
+     * Avatar güncelleme sayfası
+     */
+    public function avatar()
+    {
+        $this->middleware();
+
+        if ($this->input->post()) {
+            $this->image->setUploadInput('avatar')
+                ->required()
+                ->setMinSizes(300, 300)
+                ->addProcess('user/avatar', ['thumbnail' => [300, 300]]);
+
+            // Eski resim varsa silinmesi için.
+            if (! empty($this->getUser()->avatar)) {
+                $this->image->setDefaultImage($this->getUser()->avatar);
+            }
+
+            $avatar = $this->image->save();
+
+            if (! $this->alert->has('error')) {
+                $success = $this->user->changeAvatar($this->getUser(), $avatar);
+
+                if ($success) {
+                    $this->alert->set('success', 'Avatar başarıyla güncellendi.');
+                    redirect(clink(['@user', 'avatar']));
+                }
+
+                $this->alert->set('error', 'Hata oluştu. Lütfen tekrar deneyiniz.');
+            }
+
+            redirect(clink(['@user', 'avatar']));
+        }
+
+        $this->render('user/avatar', array());
+    }
+
     /**
      * Üye giriş sayfası
      */

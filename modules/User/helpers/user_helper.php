@@ -11,6 +11,6 @@ function getAvatar($file)
         return 'public/img/avatar.png';
     }
 
-    return 'public/upload/user/'. $file;
+    return 'public/upload/user/avatar/'. $file;
 }
 

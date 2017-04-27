@@ -169,7 +169,6 @@ class User extends Model
         return false;
     }
 
-
     /**
      * Eski parola ile uyuşma kontrolü.
      *
@@ -181,6 +180,29 @@ class User extends Model
         $oldPassword = hash($this->hashAlgo, $this->input->post('oldpassword'));
 
         return $oldPassword === $user->password;
+    }
+
+    /**
+     * Avatar değiştirme.
+     *
+     * @param object $user
+     * @param object $avatar
+     * @return bool
+     */
+    public function changeAvatar($user, $avatar)
+    {
+        $this->db
+            ->where('id', $user->id)
+            ->update($this->table, array(
+                'avatar' => $avatar->name,
+                'updatedAt' => $this->date->set()->mysqlDatetime()
+            ));
+
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

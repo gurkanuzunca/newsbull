@@ -1,8 +1,13 @@
 <?php
 
-use Sirius\Application\Model;
+use Models\BaseModel;
 
-class News extends Model
+/**
+ * Class News
+ *
+ * @property \Comment $comment
+ */
+class News extends BaseModel
 {
     private $table = 'news';
 
@@ -78,25 +83,28 @@ class News extends Model
     }
 
     /**
-     * Kayıtları kategorileri ile birlikte bulur.
+     * Haberin yorumlarını döndürür.
      *
-     * @param array $values
-     * @param string $column
-     * @return array
+     * @param object $news
+     * @param array $paginate
      */
-    public function findInWithCategory(array $values, $column = 'id')
+    public function comments($news, $paginate = [])
     {
-        $news = $this->findIn($values, $column);
+        $this->load->model('comment/comment');
+        $this->db->where('newsId', $news->id);
+        $news->comments = $this->comment->allWithUser($paginate);
+    }
 
-        if ($news) {
-            $this->load->model('category/category');
-
-            $categoryIds = $this->getColumnData($news, 'categoryId');
-            $categories = $this->category->findIn($categoryIds);
-            $this->setRelationOne('category', $news, 'categoryId', $categories, 'id');
-        }
-
-        return $news;
+    /**
+     * Haberin yorum sayısını göndürür.
+     *
+     * @param $news
+     */
+    public function commentCount($news)
+    {
+        $this->load->model('comment/comment');
+        $this->db->where('newsId', $news->id);
+        $news->commentCount = $this->comment->count();
     }
 
     /**

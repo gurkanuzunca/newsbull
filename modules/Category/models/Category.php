@@ -1,8 +1,13 @@
 <?php
 
-use Sirius\Application\Model;
+use Models\BaseModel;
 
-class Category extends Model
+/**
+ * Class Category
+ *
+ * @property \News $news
+ */
+class Category extends BaseModel
 {
     private $table = 'categories';
 
@@ -23,7 +28,6 @@ class Category extends Model
             ->get()
             ->row();
     }
-
 
     /**
      * Kayıtları bulma
@@ -68,6 +72,12 @@ class Category extends Model
         return $category;
     }
 
+    /**
+     * Kategorinin haberlerini döndürür.
+     *
+     * @param $category
+     * @param array $paginate
+     */
     public function news($category, $paginate = [])
     {
         $this->load->model('news/news');
@@ -75,14 +85,17 @@ class Category extends Model
         $category->news = $this->news->allWithCategory($paginate);
     }
 
-
+    /**
+     * Kategornin haber sayısını göndürür.
+     *
+     * @param $category
+     */
     public function newsCount($category)
     {
         $this->load->model('news/news');
         $this->db->where('categoryId', $category->id);
         $category->newsCount = $this->news->count();
     }
-
 
     /**
      * Tüm kayıtları döndürür
@@ -102,7 +115,6 @@ class Category extends Model
             ->get()
             ->result();
     }
-
 
     /**
      * Toplam kayıt sayısı.

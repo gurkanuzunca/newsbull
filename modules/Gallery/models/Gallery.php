@@ -1,8 +1,8 @@
 <?php
 
-use Sirius\Application\Model;
+use Models\BaseModel;
 
-class Gallery extends Model
+class Gallery extends BaseModel
 {
     private $table = 'galleries';
     private $imageTable = 'gallery_images';

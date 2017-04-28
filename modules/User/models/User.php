@@ -1,8 +1,13 @@
 <?php
 
-use Sirius\Application\Model;
+use Models\BaseModel;
 
-class User extends Model
+/**
+ * Class User
+ *
+ * @property \Comment $comment
+ */
+class User extends BaseModel
 {
     private $table = 'users';
     private $hashAlgo = 'sha256';
@@ -23,7 +28,6 @@ class User extends Model
             ->get()
             ->row();
     }
-
 
     /**
      * Kayıtları bulma
@@ -93,6 +97,31 @@ class User extends Model
             ->from($this->table)
             ->where('status', 'verified')
             ->count_all_results();
+    }
+
+    /**
+     * Haberin yorumlarını döndürür.
+     *
+     * @param object $user
+     * @param array $paginate
+     */
+    public function comments($user, $paginate = [])
+    {
+        $this->load->model('comment/comment');
+        $this->db->where('userId', $user->id);
+        $user->comments = $this->comment->all($paginate);
+    }
+
+    /**
+     * Haberin yorum sayısını göndürür.
+     *
+     * @param $user
+     */
+    public function commentCount($user)
+    {
+        $this->load->model('comment/comment');
+        $this->db->where('userId', $user->id);
+        $user->commentCount = $this->comment->count();
     }
 
     /**

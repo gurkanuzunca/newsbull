@@ -73,5 +73,6 @@ $route['hesap/dogrula/(.+)'] = 'User/UserController/verify/$1';
 $route['hesap/parolami-unuttum'] = 'User/UserController/forgotPassword';
 $route['hesap/parolami-sifirla/(.+)'] = 'User/UserController/resetPassword/$1';
 $route['hesap'] = 'User/UserController/index';
+$route['yorum/yaz'] = 'Comment/CommentController/create';
 $route['([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)'] = 'News/NewsController/view/$1/$2';
 $route['([a-zA-Z0-9_-]+)'] = 'Category/CategoryController/view/$1';

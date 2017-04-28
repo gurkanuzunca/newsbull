@@ -2,6 +2,11 @@
 
 use Controllers\BaseController;
 
+/**
+ * Class NewsController
+ *
+ * @property \News $news
+ */
 class NewsController extends BaseController
 {
     public $module = 'news';
@@ -19,6 +24,8 @@ class NewsController extends BaseController
         $similarNews = $this->news->similar($news, 4);
 
         $this->news->increaseVisit($news);
+        $this->news->comments($news);
+
         $this->setMeta($news, ['type' => 'article', 'imagePath' => 'news/large']);
 
         $this->render('news/view', array(

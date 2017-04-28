@@ -87,6 +87,8 @@ class News extends BaseModel
      *
      * @param object $news
      * @param array $paginate
+     *
+     * @return void
      */
     public function comments($news, $paginate = [])
     {

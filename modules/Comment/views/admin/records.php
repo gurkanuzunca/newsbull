@@ -13,7 +13,6 @@
                 <?php if ($this->permission('insert')): ?>
                     <a class="btn btn-sm btn-success" href="<?php echo moduleUri('insert', isset($parent) ? $parent->id:'') ?>"><i class="fa fa-plus"></i> Yeni Kayıt</a>
                 <?php endif; ?>
-                <a id="order-update" class="btn btn-sm btn-info hide" href="<?php echo moduleUri('order') ?>"><i class="fa fa-check-square"></i> Sırayı Güncelle</a>
             </div>
             <div class="col-md-7 text-right">
                 <?php $this->view('filter') ?>
@@ -26,39 +25,27 @@
             <th width="40" class="text-center"><i class="fa fa-ellipsis-v"></i></th>
             <th width="50">#</th>
             <th>Başlık</th>
-            <th>Slug</th>
-            <th width="150">Gösterim</th>
-            <th width="180">Yayımlanma</th>
+            <th width="180">Eklenme</th>
             <th width="150">Durum</th>
             <th width="100" class="text-right">İşlem</th>
         </tr>
         </thead>
-        <tbody class="sortable">
+        <tbody>
         <?php foreach ($records as $item): ?>
-            <tr data-id="<?php echo $item->id ?>">
+            <tr>
                 <td class="text-center">
                     <input type="checkbox" class="checkall-item" value="<?php echo $item->id ?>" />
                 </td>
                 <td><?php echo $item->id ?></td>
                 <td>
-                    <?php echo $item->title ?>
-                    <?php if (! empty($item->listTitle)): ?>
-                        <i class="fa fa-info-circle text-primary" data-toggle="tooltip" data-placement="top" title="Liste Başlığı: <?php echo htmlspecialchars($item->listTitle) ?>"></i>
-                    <?php endif; ?>
+
                 </td>
-                <td><?php echo $item->slug ?></td>
-                <td><?php echo $item->visited ?></td>
-                <td><?php echo $this->date->set($item->publishedAt)->datetimeWithName() ?></td>
+                <td><?php echo $this->date->set($item->createdAt)->datetimeWithName() ?></td>
                 <td>
                     <?php if ($item->status === 'unpublished'): ?>
                         <span class="label label-danger">Yayında Değil</span>
                     <?php else: ?>
-
-                        <?php if ($this->date->set()->diff($item->publishedAt)->diffInvert() == 0): ?>
-                            <span class="label label-warning">Zaman Ayarlı</span>
-                        <?php else: ?>
-                            <span class="label label-success">Yayında</span>
-                        <?php endif; ?>
+                        <span class="label label-success">Yayında</span>
                     <?php endif; ?>
                 </td>
                 <td class="text-right">

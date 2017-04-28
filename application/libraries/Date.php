@@ -18,6 +18,11 @@ class Date
      */
     private $diff;
 
+    /**
+     * @var DateTime $date
+     */
+    private $diffDate;
+
     private $month = array(1 => 'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık');
     private $day = array(1 => 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar');
 
@@ -47,6 +52,7 @@ class Date
     {
         $diff = new DateTime($datetime, $this->timezone);
         $this->diff = $this->date->diff($diff);
+        $this->diffDate = $diff;
 
         return $this;
     }
@@ -64,6 +70,7 @@ class Date
                 $string = $this->diff->s . ' saniye önce';
             }
         } else {
+            $this->set($this->diffDate);
             $string = $this->datetimeWithName();
         }
 

@@ -1,5 +1,3 @@
-
-
 <section id="main">
     <div class="container">
         <div class="row">
@@ -27,13 +25,66 @@
 
                     <?php $this->view('home/widget/share', ['record' => $news]) ?>
 
-                    <div class="main-news">
-                        <h2 class="section-title"><?php echo lang('Benzer Haberler'); ?></h2>
-                        <?php if (! empty($similarNews)): ?>
+                    <?php if (! empty($similarNews)): ?>
+                        <div class="main-news">
+                            <h2 class="section-title"><?php echo lang('Benzer Haberler'); ?></h2>
                             <div class="row">
                                 <?php $this->view('news/widget/list-two', ['newscast' => $similarNews]) ?>
                             </div>
-                        <?php endif ?>
+                        </div>
+                    <?php endif ?>
+
+                    <div class="comments" id="comments">
+                        <h2 class="section-title"><?php echo lang('Yorumlar'); ?></h2>
+                        <div class="write">
+                            <form action="<?php echo clink(['@comment', 'yaz']) ?>" method="post">
+                                <input type="hidden" name="news" value="<?php echo $news->id; ?>">
+                                <?php echo $this->alert->flash(['error', 'success']); ?>
+
+                                <?php if ($this->auth->logged()): ?>
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <label for="form-content">Görüşünüzü yazın</label>
+                                                <textarea class="form-control" name="content" id="form-content" required="required" tabindex="1" placeholder="Haber hakkında neder düşünüyorsunuz?"></textarea>
+                                            </div>
+                                            <button class="btn btn-success" type="submit" tabindex="2">Gönder</button>
+                                        </div>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="alert alert-info">
+                                        Yorum yazabilmek için <a href="<?php echo clink(['@user', 'giris']) ?>" title="Giriş yap">giriş yapın</a>. Henüz kayıt olmadıysanız <a href="<?php echo clink(['@user', 'olustur']) ?>" title="Yeni hesap oluştur">yeni hesap</a> oluşturun.
+                                    </div>
+                                <?php endif; ?>
+                            </form>
+                        </div>
+
+                        <?php if (! empty($news->comments)): ?>
+                            <?php foreach ($news->comments as $comment): ?>
+                                <div class="comment">
+                                    <div class="avatar">
+                                        <a href="<?php echo clink(['@profile', $comment->user->id]); ?>" title="<?php echo htmlspecialchars($comment->user->username); ?>">
+                                            <img src="<?php echo getAvatar($comment->user->avatar); ?>" alt="<?php echo htmlspecialchars($comment->user->username); ?>">
+                                        </a>
+                                    </div>
+                                    <div class="body">
+                                        <div class="username">
+                                            <a href="<?php echo clink(['@profile', $comment->user->id]); ?>" title="<?php echo htmlspecialchars($comment->user->username); ?>">
+                                                <?php echo $comment->user->username; ?>
+                                            </a>
+                                            <span><?php echo $this->date->set()->diff($comment->createdAt)->diffWithDetail(); ?></span>
+                                        </div>
+                                        <div class="content">
+                                            <?php echo nl2br(htmlspecialchars($comment->content)); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <div class="alert alert-warning">
+                                Henüz yorum yapılmamış. İlk yorumu sen yap!
+                            </div>
+                        <?php endif; ?>
                     </div>
 
                 </div>

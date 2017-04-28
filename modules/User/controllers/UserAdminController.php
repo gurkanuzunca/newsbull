@@ -49,8 +49,6 @@ class UserAdminController extends AdminController
 
     public function validationAfter($action, $record = null)
     {
-        //var_dump($record->avatar);
-        //die();
         if ($action === 'update') {
             $this->image->setDefaultImage($record->avatar);
         }

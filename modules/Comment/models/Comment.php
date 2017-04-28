@@ -66,10 +66,23 @@ class Comment extends BaseModel
     }
 
     /**
+     * Toplam kayıt sayısı.
+     *
+     * @return int
+     */
+    public function count()
+    {
+        return $this->db
+            ->from($this->table)
+            ->where('status', 'published')
+            ->count_all_results();
+    }
+
+    /**
      * Tüm kayıtları Üye bilgileri ile birlikte döndürür.
      *
      * @param array $paginate
-     * @return array
+     * @return bool
      */
     public function allWithUser($paginate = [])
     {
@@ -87,15 +100,29 @@ class Comment extends BaseModel
     }
 
     /**
-     * Toplam kayıt sayısı.
+     * Yeni yorum oluşturma.
      *
-     * @return int
+     * @param object $user
+     * @param object $news
+     * @return bool|string
      */
-    public function count()
+    public function create($user, $news)
     {
-        return $this->db
-            ->from($this->table)
-            ->where('status', 'published')
-            ->count_all_results();
+        $this->db->insert($this->table, array(
+            'userId' => $user->id,
+            'newsId' => $news->id,
+            'content' => $this->input->post('content'),
+            'status' => 'unpublished',
+            'createdAt' => $this->date->set()->mysqlDatetime(),
+            'updatedAt' => $this->date->set()->mysqlDatetime()
+        ));
+
+        $insertId = $this->db->insert_id();
+
+        if ($insertId > 0) {
+            return true;
+        }
+
+        return false;
     }
 }

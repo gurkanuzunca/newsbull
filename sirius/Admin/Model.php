@@ -16,7 +16,6 @@ abstract class Model extends \CI_Model
             $table = $table.'.';
         }
 
-
         if (isset($this->search)) {
             if (strlen($this->input->get('search')) > 0) {
                 $where = array();
@@ -25,7 +24,7 @@ abstract class Model extends \CI_Model
                     if (strpos($column, '.') === false) {
                         $column = $table . $column;
                     }
-                    $where[] = "$column LIKE '" . $this->input->get('search') ."'";
+                    $where[] = "$column LIKE '%" . $this->input->get('search') ."%'";
                 }
 
                 $this->db->where('('. implode(' OR ', $where) .')');

@@ -2,6 +2,7 @@
 
 /**
  * Link yapıcı.
+ * Son parametre  query ve saveQuery özelliklerini taşıyabilir.
  *
  * @return string
  */

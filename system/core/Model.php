@@ -51,7 +51,7 @@ class CI_Model {
 	/**
 	 * Class constructor
 	 *
-	 * @return	void
+	 * @return void
 	 */
 	public function __construct()
 	{
@@ -75,6 +75,21 @@ class CI_Model {
 		//	saying 'Undefined Property: system/core/Model.php', it's
 		//	most likely a typo in your model code.
 		return get_instance()->$key;
+	}
+
+	/**
+	 * __isset magic
+	 *
+	 * @param	string	$key
+	 * @return bool
+	 */
+	public function __isset($key)
+	{
+		if (isset(get_instance()->$key)) {
+			return get_instance()->$key;
+		}
+
+		return false;
 	}
 
 }

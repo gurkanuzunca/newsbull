@@ -25,9 +25,8 @@
             <th width="40" class="text-center"><i class="fa fa-ellipsis-v"></i></th>
             <th width="50">#</th>
             <th>Kullanıcı Adı</th>
-            <th>Ad</th>
-            <th>Soyad</th>
             <th>Email</th>
+            <th width="100" class="text-center">Yorumlar</th>
             <th width="150">Durum</th>
             <th width="100" class="text-right">İşlem</th>
         </tr>
@@ -40,9 +39,8 @@
                 </td>
                 <td><?php echo $item->id ?></td>
                 <td><?php echo $item->username ?></td>
-                <td><?php echo $item->name ?></td>
-                <td><?php echo $item->surname ?></td>
                 <td><?php echo $item->email ?></td>
+                <td class="text-center"><a class="btn btn-success btn-xs" href="<?php echo makeUri('images', $item->id)?>"><i class="fa fa-image"></i> <?php echo $item->images ?></a></td>
                 <td>
                     <?php if ($item->status === 'unverified'): ?>
                         <span class="label label-danger">Onaylı Değil</span>

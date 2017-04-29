@@ -19,6 +19,29 @@
 
         <div class="col-md-4">
             <div class="panel panel-default">
+                <div class="panel-heading"><i class="fa fa-plus-square"></i> Bilgiler</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Kullanıcı</label>
+                        <p class="form-control-static">
+                            <a href="<?php echo makeUri('admin', 'user', 'update', $record->userId) ?>">
+                                <?php echo $record->userName ?>
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Haber</label>
+
+                        <p class="form-control-static">
+                            <a href="<?php echo makeUri('admin', 'news', 'update', $record->newsId) ?>">
+                                <?php echo $record->newsTitle ?>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
                 <div class="panel-heading"><i class="fa fa-plus-square"></i> Yayımla</div>
                 <div class="panel-body">
                     <?php echo bsFormDropdown('status', 'Durum', ['value' => $record->status, 'options' => ['published' => 'Yayında', 'unpublished' => 'Yayında Değil']]) ?>

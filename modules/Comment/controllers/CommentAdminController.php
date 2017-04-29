@@ -18,6 +18,8 @@ class CommentAdminController extends AdminController
         'delete' => 'delete'
     );
 
+    public $search = array('content');
+
 
     public function records()
     {

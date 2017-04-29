@@ -314,8 +314,18 @@ class MX_Loader extends CI_Loader
     {
         $controller = (isset($this->controller)) ? $this->controller : CI::$APP;
         return call_user_func_array(array($controller, $name), $arguments);
-
     }
+
+	public function __isset($class)
+	{
+		if (isset($this->controller->$class)) {
+			return $this->controller->$class;
+		} elseif (isset(CI::$APP->$class)) {
+			return CI::$APP->$class;
+		}
+
+		return false;
+	}
 
     public function _ci_load($_ci_data)
 	{

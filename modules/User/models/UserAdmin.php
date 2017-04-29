@@ -23,6 +23,7 @@ class UserAdmin extends AdminModel
         $this->setPaginate($paginate);
 
         return $this->db
+            ->select("{$this->table}.*, (SELECT COUNT(id) FROM comments WHERE comments.userId = {$this->table}.id) comments")
             ->from($this->table)
             ->order_by("id", 'asc')
             ->get()

@@ -22,6 +22,7 @@ class NewsAdmin extends AdminModel
         $this->setPaginate($paginate);
 
         return $this->db
+            ->select("{$this->table}.*, (SELECT COUNT(id) FROM comments WHERE comments.newsId = {$this->table}.id) comments")
             ->from($this->table)
             ->where('language', $this->language)
             ->order_by("id", 'asc')

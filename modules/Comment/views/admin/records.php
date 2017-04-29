@@ -11,7 +11,7 @@
                     <a class="btn btn-sm btn-danger deleteall" href="<?php echo moduleUri('delete') ?>"><i class="fa fa-trash-o"></i></a>
                 <?php endif; ?>
                 <?php if ($this->permission('insert')): ?>
-                    <a class="btn btn-sm btn-success" href="<?php echo moduleUri('insert', isset($parent) ? $parent->id:'') ?>"><i class="fa fa-plus"></i> Yeni Kayıt</a>
+                    <a class="btn btn-sm btn-success" href="<?php echo moduleUri('insert') ?>"><i class="fa fa-plus"></i> Yeni Kayıt</a>
                 <?php endif; ?>
             </div>
             <div class="col-md-7 text-right">
@@ -24,7 +24,8 @@
         <tr>
             <th width="40" class="text-center"><i class="fa fa-ellipsis-v"></i></th>
             <th width="50">#</th>
-            <th>Başlık</th>
+            <th>Kullanıcı</th>
+            <th>Haber</th>
             <th width="180">Eklenme</th>
             <th width="150">Durum</th>
             <th width="100" class="text-right">İşlem</th>
@@ -37,9 +38,8 @@
                     <input type="checkbox" class="checkall-item" value="<?php echo $item->id ?>" />
                 </td>
                 <td><?php echo $item->id ?></td>
-                <td>
-
-                </td>
+                <td><?php echo $item->userName ?></td>
+                <td><?php echo $item->newsTitle ?></td>
                 <td><?php echo $this->date->set($item->createdAt)->datetimeWithName() ?></td>
                 <td>
                     <?php if ($item->status === 'unpublished'): ?>

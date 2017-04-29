@@ -40,7 +40,7 @@
                 <td><?php echo $item->id ?></td>
                 <td><?php echo $item->username ?></td>
                 <td><?php echo $item->email ?></td>
-                <td class="text-center"><a class="btn btn-success btn-xs" href="<?php echo makeUri('images', $item->id)?>"><i class="fa fa-image"></i> <?php echo $item->images ?></a></td>
+                <td class="text-center"><a class="btn btn-success btn-xs" href="<?php echo makeUri('admin', 'comment', 'records', ['query' => ['userId' => $item->id]])?>"><i class="fa fa-comment"></i> <?php echo $item->comments ?></a></td>
                 <td>
                     <?php if ($item->status === 'unverified'): ?>
                         <span class="label label-danger">Onaylı Değil</span>

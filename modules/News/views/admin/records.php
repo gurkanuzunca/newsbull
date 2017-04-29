@@ -28,6 +28,7 @@
             <th>Başlık</th>
             <th>Slug</th>
             <th width="150">Gösterim</th>
+            <th width="10" class="text-center">Yorumlar</th>
             <th width="180">Yayımlanma</th>
             <th width="150">Durum</th>
             <th width="100" class="text-right">İşlem</th>
@@ -48,6 +49,7 @@
                 </td>
                 <td><?php echo $item->slug ?></td>
                 <td><?php echo $item->visited ?></td>
+                <td class="text-center"><a class="btn btn-success btn-xs" href="<?php echo makeUri('admin', 'comment', 'records', ['query' => ['newsId' => $item->id]])?>"><i class="fa fa-comment"></i> <?php echo $item->comments ?></a></td>
                 <td><?php echo $this->date->set($item->publishedAt)->datetimeWithName() ?></td>
                 <td>
                     <?php if ($item->status === 'unpublished'): ?>

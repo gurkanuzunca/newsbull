@@ -19,6 +19,7 @@ class CommentAdminController extends AdminController
     );
 
     public $search = array('content');
+    public $filter = array('userId', 'newsId');
 
 
     public function records()

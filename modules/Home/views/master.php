@@ -77,8 +77,13 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right user-account">
-                        <li><a class="login" href="<?php echo clink(['@user', 'giris']) ?>" title="Giriş yap"><i class="fa fa-sign-in"></i> Giriş yap</a></li>
-                        <li><a class="create" href="<?php echo clink(['@user', 'olustur']) ?>" title="Hesap oluştur"><i class="fa fa-user"></i> Hesap oluştur</a></li>
+                        <?php if ($this->auth->logged()): ?>
+                            <li><a class="login" href="<?php echo clink(['@profile', $this->auth->user()->id]) ?>" title="Profilim"><i class="fa fa-user"></i> <?php echo $this->getUser()->username ?></a></li>
+                            <li><a class="create" href="<?php echo clink(['@user']) ?>" title="Hesabım"><i class="fa fa-cog"></i> Hesabım</a></li>
+                        <?php else: ?>
+                            <li><a class="login" href="<?php echo clink(['@user', 'giris']) ?>" title="Giriş yap"><i class="fa fa-sign-in"></i> Giriş yap</a></li>
+                            <li><a class="create" href="<?php echo clink(['@user', 'olustur']) ?>" title="Hesap oluştur"><i class="fa fa-user"></i> Hesap oluştur</a></li>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </nav>

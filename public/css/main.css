@@ -104,10 +104,10 @@ a:hover {color: #000;}
 .comments .comment .avatar {float: left; width: 60px; margin-right: 15px;}
 .comments .comment .avatar img {display: block; width: 100%; height: auto; border-radius: 50%;}
 .comments .comment .body {overflow: hidden;}
-.comments .comment .body .username {overflow: hidden; margin-bottom: 10px;}
-.comments .comment .body .username span {color: #999; font-size: 11px;}
+.comments .comment .body .username {overflow: hidden; margin-bottom: 10px; font-weight: 600;}
+.comments .comment .body .username span {color: #999; font-size: 12px; font-weight: 400;}
 .comments .comment .body .username span:before {content: "\f111"; font-family: FontAwesome; font-size: 5px; display: inline-block; vertical-align: top; margin: 7px 5px 0 5px;}
-.comments .comment .body .content {font-size: 13px;}
+.comments .comment .body .content {font-size: 14px;}
 
 .account {}
 .account .menu a {color: #5e8dcf;}

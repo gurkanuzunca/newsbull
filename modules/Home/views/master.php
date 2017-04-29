@@ -9,7 +9,7 @@
 
     <base href="<?php echo base_url('/') ?>" />
 
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:400,500,700&amp;subset=latin-ext" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&amp;subset=latin-ext" />
     <link rel="stylesheet" type="text/css" href="public/assets/compiled.css" />
     <?php foreach ($this->assets->css() as $css): ?>
         <link rel="stylesheet" type="text/css" href="<?php echo $css ?>" />
@@ -74,6 +74,11 @@
                         <?php foreach ($this->menu->get('main') as $menu): ?>
                             <li><a href="<?php echo clink($menu->link) ?>" title="<?php echo htmlspecialchars($menu->hint); ?>"><?php echo $menu->title; ?></a></li>
                         <?php endforeach; ?>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right user-account">
+                        <li><a class="login" href="<?php echo clink(['@user', 'giris']) ?>" title="Giriş yap"><i class="fa fa-sign-in"></i> Giriş yap</a></li>
+                        <li><a class="create" href="<?php echo clink(['@user', 'olustur']) ?>" title="Hesap oluştur"><i class="fa fa-user"></i> Hesap oluştur</a></li>
                     </ul>
                 </div>
             </nav>

@@ -17,6 +17,13 @@
 
 
                 <div class="galleries">
+                    <ul class="more">
+                        <li>
+                            <a href="<?php echo clink(['@gallery']); ?>" title="<?php echo lang('Tüm Galeriler'); ?>">
+                                <?php echo lang('Tüm Galeriler'); ?>
+                            </a>
+                        </li>
+                    </ul>
                     <h2 class="section-title"><?php echo lang('Galeriler'); ?></h2>
                     <div class="row">
                         <?php foreach ($homeGalleries as $index => $gallery): ?>
@@ -37,11 +44,6 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <div class="more">
-                        <a class="more btn btn-default btn-sm" href="<?php echo clink(['@gallery']); ?>" title="<?php echo lang('Tüm Galeriler'); ?>">
-                            <i class="fa fa-camera"></i> <?php echo lang('Tüm Galeriler'); ?>
-                        </a>
-                    </div>
                 </div>
 
 
@@ -49,14 +51,16 @@
                     <?php foreach ($homeCategories as $homeCategory): ?>
                         <?php if (! empty($homeCategory->news)): ?>
                             <div class="main-news">
+                                <ul class="more">
+                                    <li>
+                                        <a class="btn btn-default btn-sm" href="<?php echo clink([$homeCategory->slug]); ?>" title="<?php echo lang('Tüm Haberler'); ?>">
+                                            <i class="fa fa-newspaper-o"></i> <?php echo lang('Tüm Haberler'); ?>
+                                        </a>
+                                    </li>
+                                </ul>
                                 <h2 class="section-title"><?php echo $homeCategory->title; ?></h2>
                                 <div class="row">
                                     <?php $this->view('news/widget/list-two', ['newscast' => $homeCategory->news]) ?>
-                                </div>
-                                <div class="more">
-                                    <a class="more btn btn-default btn-sm" href="<?php echo clink([$homeCategory->slug]); ?>" title="<?php echo lang('Tüm Haberler'); ?>">
-                                        <i class="fa fa-newspaper-o"></i> <?php echo lang('Tüm Haberler'); ?>
-                                    </a>
                                 </div>
                             </div>
                         <?php endif; ?>

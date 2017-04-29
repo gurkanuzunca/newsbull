@@ -2,6 +2,13 @@
 
 $config['widgets'] = array(
     array(
+        'module' => 'comment',
+        'table' => 'comments',
+        'type'	=> 'app app-success',
+        'where' => array('status' => 'unpublished'),
+        'info' => 'Yayında Değil'
+    ),
+    array(
         'module' => 'news',
         'table' => 'news',
         'type'	=> 'app app-success',

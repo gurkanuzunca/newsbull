@@ -53,8 +53,8 @@
                             <div class="main-news">
                                 <ul class="more">
                                     <li>
-                                        <a class="btn btn-default btn-sm" href="<?php echo clink([$homeCategory->slug]); ?>" title="<?php echo lang('Tüm Haberler'); ?>">
-                                            <i class="fa fa-newspaper-o"></i> <?php echo lang('Tüm Haberler'); ?>
+                                        <a href="<?php echo clink([$homeCategory->slug]); ?>" title="<?php echo lang('Tüm Haberler'); ?>">
+                                           <?php echo lang('Tüm Haberler'); ?>
                                         </a>
                                     </li>
                                 </ul>

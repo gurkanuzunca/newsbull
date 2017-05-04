@@ -31,7 +31,22 @@ class UserController extends BaseController
     public function index()
     {
         $this->middleware();
-        $this->render('user/index', array());
+        $user = $this->getUser();
+        $paginate = null;
+
+        $this->user->comments($this->getUser());
+        $this->user->commentCount($user);
+        $user->comments = array();
+
+        if ($user->commentCount > 0) {
+            $paginate = $this->paginate($user->commentCount, 20);
+            $this->user->comments($user, $paginate);
+        }
+
+        $this->render('user/index', array(
+            'user' => $user,
+            'paginate' => $paginate
+        ));
     }
 
     /**

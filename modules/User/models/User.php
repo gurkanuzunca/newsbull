@@ -109,7 +109,7 @@ class User extends BaseModel
     {
         $this->load->model('comment/comment');
         $this->db->where('userId', $user->id);
-        $user->comments = $this->comment->all($paginate);
+        $user->comments = $this->comment->allWithNews($paginate);
     }
 
     /**

@@ -6,6 +6,8 @@ use Models\BaseModel;
  * Class Comment
  *
  * @property \User $user
+ * @property \News $news
+ * @property \Category $category
  */
 class Comment extends BaseModel
 {
@@ -94,6 +96,33 @@ class Comment extends BaseModel
             $userIds = $this->getColumnData($comments, 'userId');
             $users = $this->user->findIn($userIds);
             $this->setRelationOne('user', $comments, 'userId', $users, 'id');
+        }
+
+        return $comments;
+    }
+
+    /**
+     * Tüm kayıtları Haber bilgileri ile birlikte döndürür.
+     *
+     * @param array $paginate
+     * @return bool
+     */
+    public function allWithNews($paginate = [])
+    {
+        $comments = $this->all($paginate);
+
+        if ($comments) {
+            $this->load->model('news/news');
+            $this->load->model('category/category');
+
+            $newIds = $this->getColumnData($comments, 'newsId');
+            $news = $this->news->findIn($newIds);
+            $this->setRelationOne('news', $comments, 'newsId', $news, 'id');
+
+            $categoryIds = $this->getColumnData($news, 'categoryId');
+            $categories = $this->category->findIn($categoryIds);
+            $this->setRelationOne('category', $news, 'categoryId', $categories, 'id');
+
         }
 
         return $comments;

@@ -6,6 +6,7 @@ use Models\BaseModel;
  * Class News
  *
  * @property \Comment $comment
+ * @property \Category $category
  */
 class News extends BaseModel
 {

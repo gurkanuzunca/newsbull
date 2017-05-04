@@ -42,8 +42,13 @@ class Date
      */
     public function set($datetime = 'now')
     {
-        $this->date = new DateTime($datetime, $this->timezone);
-        $this->date->setTimezone($this->timezone);
+        if ($datetime instanceof DateTime) {
+            $this->date = $datetime;
+        } else {
+            $this->date = new DateTime($datetime, $this->timezone);
+            $this->date->setTimezone($this->timezone);
+        }
+
         return $this;
     }
 

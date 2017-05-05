@@ -18,8 +18,14 @@
                                 <label for="form-password">Parolanız</label>
                                 <input class="form-control" name="password" id="form-password" type="password" required="required" tabindex="2">
                             </div>
-
-                            <button class="btn btn-success btn-block" type="submit" tabindex="3">Giriş Yap</button>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label for="form-remember">
+                                        <input name="remember" id="form-remember" type="checkbox" tabindex="3" checked="checked" value="true"> Beni Hatırla
+                                    </label>
+                                </div>
+                            </div>
+                            <button class="btn btn-success btn-block" type="submit" tabindex="4">Giriş Yap</button>
                         </div>
                     </div>
 

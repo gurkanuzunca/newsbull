@@ -170,7 +170,7 @@ class UserController extends BaseController
                 $logged = $this->auth->attempt([
                     'email' => $this->input->post('email'),
                     'password' => $this->input->post('password')
-                ]);
+                ], $this->input->post('remember') === 'true');
 
                 if ($logged === true) {
                     redirect(clink(['@user']));

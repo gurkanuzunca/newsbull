@@ -49,10 +49,12 @@ class Installer extends InstallManager
                 'hesap/profil' => 'User/UserController/profile',
                 'hesap/parola' => 'User/UserController/password',
                 'hesap/avatar' => 'User/UserController/avatar',
+                'hesap/dogrula/(.+)' => 'User/UserController/verify/$1',
                 'hesap/parolami-unuttum' => 'User/UserController/forgotPassword',
                 'hesap/parolami-sifirla/(.+)' => 'User/UserController/resetPassword/$1',
-                'hesap/dogrula/(.+)' => 'User/UserController/verify/$1',
                 'hesap' => 'User/UserController/index',
+                // Comment
+                'yorum/yaz' => 'Comment/CommentController/create',
                 // News
                 '([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)' => 'News/NewsController/view/$1/$2',
                 // Categories
@@ -71,6 +73,7 @@ class Installer extends InstallManager
             'menu' => 'Menü Yönetimi',
             'slider' => 'Slider',
             'user' => 'Üyeler',
+            'comment' => 'Yorumlar',
             'search' => 'Arama',
             'social' => 'Sosyal Medya',
         );

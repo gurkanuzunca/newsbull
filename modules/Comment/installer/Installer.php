@@ -12,7 +12,7 @@ class Installer extends InstallManager
      * @var array
      */
     public $tables = array(
-        'news',
+        'comments',
     );
 
 
@@ -24,8 +24,9 @@ class Installer extends InstallManager
     public $routes = array(
         'tr' => array(
             'route' => array(
-                '([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)' => 'News/NewsController/view/$1/$2',
-            )
+                'yorum/yaz' => 'Comment/CommentController/create',
+            ),
+            'uri' => 'yorum'
         ),
     );
 

@@ -63,15 +63,12 @@
                             <?php foreach ($news->comments as $comment): ?>
                                 <div class="comment">
                                     <div class="avatar">
-                                        <a href="<?php echo clink(['@profile', $comment->user->id]); ?>" title="<?php echo htmlspecialchars($comment->user->username); ?>">
-                                            <img src="<?php echo getAvatar($comment->user->avatar); ?>" alt="<?php echo htmlspecialchars($comment->user->username); ?>">
-                                        </a>
+                                        <img src="<?php echo getAvatar($comment->user->avatar); ?>" alt="<?php echo htmlspecialchars($comment->user->username); ?>">
+
                                     </div>
                                     <div class="body">
-                                        <div class="username">
-                                            <a href="<?php echo clink(['@profile', $comment->user->id]); ?>" title="<?php echo htmlspecialchars($comment->user->username); ?>">
-                                                <?php echo $comment->user->username; ?>
-                                            </a>
+                                        <div class="title">
+                                            <?php echo $comment->user->username; ?>
                                             <span><?php echo $this->date->set()->diff($comment->createdAt)->diffWithDetail(); ?></span>
                                         </div>
                                         <div class="content">

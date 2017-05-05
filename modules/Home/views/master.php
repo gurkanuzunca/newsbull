@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <base href="<?php echo base_url('/') ?>" />
+    <link rel="shortcut icon" type="image/png" href="public/img/favicon.png"/>
 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&amp;subset=latin-ext" />
     <link rel="stylesheet" type="text/css" href="public/assets/compiled.css" />
@@ -47,7 +48,9 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="logo">
-                        <a href="<?php echo clink('@home'); ?>" title="<?php echo lang('Anasayfa'); ?>">Newsbull</a>
+                        <a href="<?php echo clink('@home'); ?>" title="<?php echo lang('Anasayfa'); ?>">
+                            <img src="public/img/logo.png" alt="<?php echo lang('Anasayfa'); ?>">
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -78,7 +81,7 @@
 
                     <ul class="nav navbar-nav navbar-right user-account">
                         <?php if ($this->auth->logged()): ?>
-                            <li><a class="login" href="<?php echo clink(['@profile', $this->auth->user()->id]) ?>" title="Profilim"><i class="fa fa-user"></i> <?php echo $this->getUser()->username ?></a></li>
+                            <li><a class="login" title="Profilim"><i class="fa fa-user"></i> <?php echo $this->getUser()->username ?></a></li>
                             <li><a class="create" href="<?php echo clink(['@user']) ?>" title="Hesabım"><i class="fa fa-cog"></i> Hesabım</a></li>
                         <?php else: ?>
                             <li><a class="login" href="<?php echo clink(['@user', 'giris']) ?>" title="Giriş yap"><i class="fa fa-sign-in"></i> Giriş yap</a></li>

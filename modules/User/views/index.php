@@ -15,13 +15,13 @@
                                 <?php if (! empty($user->comments)): ?>
                                     <?php foreach ($user->comments as $comment): ?>
                                         <div class="comment">
-                                            <div class="avatar">
+                                            <div class="image">
                                                 <a href="<?php echo clink(['@news', $comment->news->category->slug, $comment->news->slug]); ?>" title="<?php echo htmlspecialchars(! empty($comment->news->listTitle) ? $comment->news->listTitle : $comment->news->title); ?>">
                                                     <img src="<?php echo getImage($comment->news->image, 'news/thumb', 480, 300); ?>" alt="<?php echo htmlspecialchars(! empty($comment->news->listTitle) ? $comment->news->listTitle : $comment->news->title); ?>">
                                                 </a>
                                             </div>
                                             <div class="body">
-                                                <div class="username">
+                                                <div class="title news">
                                                     <a href="<?php echo clink(['@news', $comment->news->category->slug, $comment->news->slug]); ?>" title="<?php echo htmlspecialchars(! empty($comment->news->listTitle) ? $comment->news->listTitle : $comment->news->title); ?>">
                                                         <?php echo $comment->news->title; ?>
                                                     </a>
@@ -39,6 +39,10 @@
                                     </div>
                                 <?php endif; ?>
                             </div>
+
+                            <?php if (! empty($paginate)): ?>
+                                <?php echo $paginate['pagination'] ?>
+                            <?php endif; ?>
                         </div>
                         <div class="col-md-3">
                             <?php $this->view('user/widget/card') ?>

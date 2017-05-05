@@ -99,14 +99,18 @@ a:hover {color: #000;}
 .comments .write {margin-bottom: 30px;}
 .comments .write .panel .panel-body {background-color: #f8f8f8;}
 .comments .write textarea {resize: vertical;}
-.comments .comment {overflow: hidden; margin-bottom: 30px; border-bottom: 1px dotted #ddd; padding-bottom: 30px;}
+.comments .comment {overflow: hidden; margin-bottom: 20px; border-bottom: 1px dotted #ddd; padding-bottom: 20px;}
 .comments .comment:last-child {border: 0;}
+.comments .comment .image {float: left; width: 100px; margin-right: 15px;}
+.comments .comment .image img {display: block; width: 100%; height: auto;}
 .comments .comment .avatar {float: left; width: 60px; margin-right: 15px;}
 .comments .comment .avatar img {display: block; width: 100%; height: auto; border-radius: 50%;}
 .comments .comment .body {overflow: hidden;}
-.comments .comment .body .username {overflow: hidden; margin-bottom: 10px; font-weight: 600;}
-.comments .comment .body .username span {color: #999; font-size: 12px; font-weight: 400;}
-.comments .comment .body .username span:before {content: "\f111"; font-family: FontAwesome; font-size: 5px; display: inline-block; vertical-align: top; margin: 7px 5px 0 5px;}
+.comments .comment .body .title {color: #5e8dcf; overflow: hidden; margin-bottom: 10px; font-weight: 600;}
+.comments .comment .body .title span {color: #999; font-size: 13px; font-weight: 400;}
+.comments .comment .body .title span:before {content: "\f111"; font-family: FontAwesome; font-size: 5px; display: inline-block; vertical-align: top; margin: 7px 5px 0 5px;}
+.comments .comment .body .title.news span {display: block;}
+.comments .comment .body .title.news span:before {display: none;}
 .comments .comment .body .content {font-size: 14px;}
 
 .account {}
@@ -122,9 +126,9 @@ a:hover {color: #000;}
 
 #header {background-color: #fff;}
 #header .head {border-bottom: 1px solid #eee;}
-#header .head .logo {font-size: 40px; font-weight: 700; padding: 20px 0; line-height: 1;}
+#header .head .logo {padding: 20px 0; line-height: 1;}
 #header .head .logo a {color: #000;}
-#header .head .form {padding-top: 25px;}
+#header .head .form {padding-top: 20px;}
 #header .head .form .form-control {border-radius: 0;}
 #header .head .form .btn {border-radius: 0;}
 

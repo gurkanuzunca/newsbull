@@ -9,6 +9,13 @@ $config['widgets'] = array(
         'info' => 'Yayında Değil'
     ),
     array(
+        'module' => 'user',
+        'table' => 'users',
+        'type'	=> 'app app-success',
+        'where' => array('status' => 'unverified'),
+        'info' => 'Onaylı Değil'
+    ),
+    array(
         'module' => 'news',
         'table' => 'news',
         'type'	=> 'app app-success',

@@ -169,7 +169,8 @@ class UserController extends BaseController
             if (! $this->alert->has('error')) {
                 $logged = $this->auth->attempt([
                     'email' => $this->input->post('email'),
-                    'password' => $this->input->post('password')
+                    'password' => $this->input->post('password'),
+                    'status' => 'verified'
                 ], $this->input->post('remember') === 'true');
 
                 if ($logged === true) {

@@ -83,9 +83,11 @@ abstract class Model extends \CI_Model
     {
         $this->setNamed($relatedRecords, $localKey);
 
-        foreach ($records as $record) {
+        foreach ($records as $index => $record) {
             if (isset($relatedRecords[$record->$foreignKey])) {
                 $record->$variable = $relatedRecords[$record->$foreignKey];
+            } else {
+                unset($records[$index]);
             }
         }
     }

@@ -25,7 +25,7 @@ class UserAdmin extends AdminModel
         return $this->db
             ->select("{$this->table}.*, (SELECT COUNT(id) FROM comments WHERE comments.userId = {$this->table}.id) comments")
             ->from($this->table)
-            ->order_by("id", 'asc')
+            ->order_by("id", 'desc')
             ->get()
             ->result();
     }

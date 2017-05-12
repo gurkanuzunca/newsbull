@@ -29,7 +29,7 @@ class CommentAdmin extends AdminModel
             ->from($this->table)
             ->join('users', "users.id = {$this->table}.userId")
             ->join('news', "news.id = {$this->table}.newsId")
-            ->order_by("{$this->table}.id", 'asc')
+            ->order_by("{$this->table}.id", 'desc')
             ->get()
             ->result();
     }

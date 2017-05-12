@@ -25,7 +25,7 @@ class NewsAdmin extends AdminModel
             ->select("{$this->table}.*, (SELECT COUNT(id) FROM comments WHERE comments.newsId = {$this->table}.id) comments")
             ->from($this->table)
             ->where('language', $this->language)
-            ->order_by("id", 'asc')
+            ->order_by("id", 'desc')
             ->get()
             ->result();
     }

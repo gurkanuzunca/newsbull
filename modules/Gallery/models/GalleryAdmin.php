@@ -27,7 +27,7 @@ class GalleryAdmin extends AdminModel
             ->from($this->table)
             ->where('language', $this->language)
             ->order_by('order', 'asc')
-            ->order_by("id", 'asc')
+            ->order_by("id", 'desc')
             ->get()
             ->result();
     }

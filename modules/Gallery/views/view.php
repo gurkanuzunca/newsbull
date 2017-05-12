@@ -6,6 +6,7 @@
                 <h1 class="section-title strong"><?php echo $gallery->title; ?></h1>
                 <ul class="breadcrumb">
                     <li><a href="./" title="<?php echo lang('Anasayfa'); ?>"><?php echo lang('Anasayfa'); ?></a> </li>
+                    <li><a href="<?php echo clink(['@gallery']) ?>" title="<?php echo htmlspecialchars($this->module->arguments->title); ?>"><?php echo $this->module->arguments->title; ?></a> </li>
                     <li><a href="<?php echo clink(['@gallery', $gallery->slug]) ?>" title="<?php echo htmlspecialchars($gallery->title); ?>"><?php echo $gallery->title; ?></a> </li>
                 </ul>
 

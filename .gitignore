@@ -5,6 +5,7 @@ nbproject/
 .idea/
 .DS_Store
 
+application/config/routes.php
 application/var/*
 !application/cache/.gitkeep
 !application/logs/.gitkeep

@@ -18,4 +18,9 @@ $(function() {
             }
         }]
     });
+
+    $('.share-box').on('click', function(){
+        window.open($(this).attr('href'), 'sharewindow', 'width=600,height=400');
+        return false;
+    });
 });

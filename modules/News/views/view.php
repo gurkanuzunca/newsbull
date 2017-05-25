@@ -15,9 +15,11 @@
 
                     <?php $this->view('home/widget/share', ['record' => $news]) ?>
 
-                    <div class="image">
-                        <img src="<?php echo getImage($news->image, 'news/large', 750); ?>" alt="<?php echo htmlspecialchars($news->title); ?>">
-                    </div>
+                    <?php if ($news->hideImage == 0): ?>
+                        <div class="image">
+                            <img src="<?php echo getImage($news->image, 'news/large', 750); ?>" alt="<?php echo htmlspecialchars($news->title); ?>">
+                        </div>
+                    <?php endif; ?>
 
                     <div class="news-content common-typography">
                         <?php echo $news->content; ?>

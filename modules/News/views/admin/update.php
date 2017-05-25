@@ -18,6 +18,7 @@
                     <?php echo bsFormText('slug', 'Slug', ['value' => $record->slug]) ?>
                     <?php echo bsFormTextarea('summary', 'Özet', ['value' => $record->summary]) ?>
                     <?php echo bsFormImage('image', 'Görsel', ['value' => $record->image, 'path' => 'public/upload/news/thumb']) ?>
+                    <?php echo bsFormDropdown('hideImage', 'Görsel gizlensin mi?', ['value' => $record->hideImage,'options' => ['0' => 'Hayır', '1' => 'Evet']]) ?>
                     <?php echo bsFormEditor('content', 'İçerik', ['value' => $record->content]) ?>
                 </div>
                 <div class="panel-footer">

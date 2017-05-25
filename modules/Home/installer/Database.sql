@@ -141,6 +141,7 @@ CREATE TABLE `news` (
   `slug` varchar(255) NOT NULL,
   `summary` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
+  `hideImage` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `content` longtext,
   `metaTitle` varchar(255) DEFAULT NULL,
   `metaDescription` text,

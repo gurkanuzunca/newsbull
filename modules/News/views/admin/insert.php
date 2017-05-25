@@ -13,6 +13,7 @@
                     <?php echo bsFormText('slug', 'Slug') ?>
                     <?php echo bsFormTextarea('summary', 'Özet') ?>
                     <?php echo bsFormImage('image', 'Görsel') ?>
+                    <?php echo bsFormDropdown('hideImage', 'Görsel gizlensin mi?', ['options' => ['0' => 'Hayır', '1' => 'Evet']]) ?>
                     <?php echo bsFormEditor('content', 'İçerik') ?>
                 </div>
                 <div class="panel-footer">

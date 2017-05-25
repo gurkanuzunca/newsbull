@@ -79,7 +79,7 @@ function clink($segments, $query = null, $saveQuery = false)
         array_unshift($segments, get_instance()->language);
     }
 
-    $segments = implode('/', array_map('reservedUri', $segments));
+    $segments = preg_replace('!^\/!', '', implode('/', array_map('reservedUri', $segments)));
 
     return makeUri($segments, array('query' => $query, 'saveQuery' => $saveQuery));
 }
@@ -110,6 +110,13 @@ function reservedUri($uri)
 }
 
 
+/**
+ * @param $array
+ * @param $key
+ * @param $value
+ * @param null $prepend
+ * @return array|null
+ */
 function prepareForSelect($array, $key, $value, $prepend = null)
 {
     if (! is_null($prepend)) {

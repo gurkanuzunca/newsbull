@@ -34,7 +34,4 @@ class NewsController extends BaseController
         ));
     }
 
-
-
-
 } 

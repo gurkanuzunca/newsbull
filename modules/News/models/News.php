@@ -221,7 +221,10 @@ class News extends BaseModel
         return $this->allWithCategory(['limit' => $limit]);
     }
 
-
+    /**
+     * @param $query
+     * @return array
+     */
     public function search($query)
     {
         $this->db->like('title', $query)->or_like('summary', $query);

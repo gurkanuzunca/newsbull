@@ -74,5 +74,7 @@ $route['hesap/parolami-unuttum'] = 'User/UserController/forgotPassword';
 $route['hesap/parolami-sifirla/(.+)'] = 'User/UserController/resetPassword/$1';
 $route['hesap'] = 'User/UserController/index';
 $route['yorum/yaz'] = 'Comment/CommentController/create';
+$route['sitemap/(.+)\.xml'] = 'Sitemap/SitemapController/$1';
+$route['sitemap\.xml'] = 'Sitemap/SitemapController/index';
 $route['([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)'] = 'News/NewsController/view/$1/$2';
 $route['([a-zA-Z0-9_-]+)'] = 'Category/CategoryController/view/$1';

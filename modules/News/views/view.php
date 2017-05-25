@@ -56,6 +56,7 @@
                                         Yorum yazabilmek için <a href="<?php echo clink(['@user', 'giris']) ?>" title="Giriş yap">giriş yapın</a>. Henüz kayıt olmadıysanız <a href="<?php echo clink(['@user', 'olustur']) ?>" title="Yeni hesap oluştur">yeni hesap</a> oluşturun.
                                     </div>
                                 <?php endif; ?>
+                                <?php echo csrfToken(true); ?>
                             </form>
                         </div>
 

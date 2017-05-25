@@ -35,6 +35,7 @@
                     <div class="alert alert-info">
                         Hesabınız varsa <a href="<?php echo clink(['@user', 'giris']) ?>" title="Yeni hesap oluştur">giriş yapın</a>.
                     </div>
+                    <?php echo csrfToken(true); ?>
                 </form>
             </div>
         </div>

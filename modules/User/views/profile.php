@@ -30,7 +30,7 @@
                                     <p class="help-block">Görünen isminiz olarak kullanılacak.</p>
                                 </div>
                                 <button class="btn btn-success" type="submit" tabindex="4">Güncelle</button>
-
+                                <?php echo csrfToken(true); ?>
                             </form>
                         </div>
                         <div class="col-md-3">

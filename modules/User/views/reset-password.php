@@ -21,6 +21,7 @@
                     <div class="alert alert-info">
                         Henüz kayıt olmadıysanız <a href="<?php echo clink(['@user', 'olustur']) ?>" title="Yeni hesap oluştur">yeni hesap</a> oluşturun.
                     </div>
+                    <?php echo csrfToken(true); ?>
                 </form>
             </div>
         </div>

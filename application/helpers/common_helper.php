@@ -243,3 +243,23 @@ function makeDate($datetime)
 {
     return get_instance()->date->set($datetime);
 }
+
+/**
+ * Csrf için token değerlerini döndürür yada hidden input yazar.
+ *
+ * @param bool|false $input
+ * @return array|string
+ */
+function csrfToken($input = false)
+{
+    $token = [
+        'name' => get_instance()->security->get_csrf_token_name(),
+        'hash' => get_instance()->security->get_csrf_hash()
+    ];
+
+    if ($input === true) {
+        return '<input type="hidden" name="'. $token['name'] .'" value="'. $token['hash'] .'" />';
+    }
+
+    return $token;
+}

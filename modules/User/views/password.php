@@ -25,7 +25,7 @@
                                     <input class="form-control" name="newpassword" id="form-newpassword" type="password" required="required" tabindex="2">
                                 </div>
                                 <button class="btn btn-success" type="submit" tabindex="3">Değiştir</button>
-
+                                <?php echo csrfToken(true); ?>
                             </form>
                         </div>
                         <div class="col-md-3">

@@ -33,6 +33,7 @@ class Installer extends InstallManager
      *
      * @var array
      */
+    /*
     public $routes = array(
         // Türkçe
         'tr' => array(
@@ -61,8 +62,9 @@ class Installer extends InstallManager
                 '([a-zA-Z0-9_-]+)' => 'Category/CategoryController/view/$1',
             )
         ),
-    );
 
+    );
+    */
     public function saveModules()
     {
         $modules = array(

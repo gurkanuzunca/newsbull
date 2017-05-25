@@ -21,7 +21,7 @@
                                     <input class="filestyle" type="file" name="avatar" tabindex="1">
                                 </div>
                                 <button class="btn btn-success" type="submit" tabindex="2" name="forpost">Güncelle</button>
-
+                                <?php echo csrfToken(true); ?>
                             </form>
                         </div>
                         <div class="col-md-3">

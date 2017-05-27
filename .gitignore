@@ -1,6 +1,6 @@
 composer.lock
 composer.phar
-vendor/
+#vendor/
 nbproject/
 .idea/
 .DS_Store

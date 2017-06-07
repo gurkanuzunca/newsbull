@@ -139,7 +139,7 @@ class SitemapController extends BaseController
 
         foreach ($items as $item) {
             $sitemap[] = (object) array(
-                'loc'			=> base_url(clink(['@gallery', $item->slug, $item->slug])),
+                'loc'			=> base_url(clink(['@gallery', $item->slug])),
                 'lastmod'		=> $this->date->set($item->updatedAt)->format('Y-m-d\TH:i:sP'),
                 'changefreq'	=> 'weekly',
                 'priority'		=> '0.8'

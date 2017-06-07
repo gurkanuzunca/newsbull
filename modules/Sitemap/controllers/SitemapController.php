@@ -104,12 +104,18 @@ class SitemapController extends BaseController
                 'loc'			=> base_url(clink(['@news', $item->category->slug, $item->slug])),
                 'lastmod'		=> $this->date->set($item->updatedAt)->format('Y-m-d\TH:i:sP'),
                 'changefreq'	=> 'weekly',
-                'priority'		=> '0.8'
+                'priority'		=> '0.8',
+                'news'		    => (object) array(
+                    'name' => $this->stack->get('options.metaTitle'),
+                    'language' => $item->language,
+                    'publication_date' => $this->date->set($item->createdAt)->format('Y-m-d\TH:i:sP'),
+                    'title' => $item->title
+                )
             );
         }
 
         $this->output->set_content_type('text/xml');
-        return $this->load->view('sitemap/sitemap', ['sitemap' => $sitemap]);
+        return $this->load->view('sitemap/sitemap-news', ['sitemap' => $sitemap]);
 
     }
 

@@ -4,6 +4,7 @@
 CREATE TABLE `news` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `categoryId` int(10) unsigned NOT NULL,
+  `authorId` int(10) unsigned DEFAULT NULL,
   `title` varchar(255) NOT NULL,
   `listTitle` varchar(255) DEFAULT NULL,
   `slug` varchar(255) NOT NULL,
@@ -22,5 +23,7 @@ CREATE TABLE `news` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_news_categoryId` (`categoryId`),
-  CONSTRAINT `fk_news_categoryId` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`) ON UPDATE CASCADE
+  KEY `fk_news_authorId` (`authorId`),
+  CONSTRAINT `fk_news_categoryId` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_news_authorId` FOREIGN KEY (`authorId`) REFERENCES `authors` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -14,6 +14,7 @@ class NewsAdminController extends AdminController
 
     // Arama yapılacak kolonlar.
     public $search = array('title');
+    public $filter = array('authorId');
 
 
     public $actions = array(

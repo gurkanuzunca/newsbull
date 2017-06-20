@@ -2,10 +2,9 @@
 
 use Models\AdminModel;
 
-class UserAdmin extends AdminModel
+class AuthorAdmin extends AdminModel
 {
-    protected $table = 'users';
-    private $hashAlgo = 'sha256';
+    protected $table = 'authors';
 
 
     public function find($id)
@@ -23,7 +22,7 @@ class UserAdmin extends AdminModel
         $this->setPaginate($paginate);
 
         return $this->db
-            ->select("{$this->table}.*, (SELECT COUNT(id) FROM comments WHERE comments.userId = {$this->table}.id) comments")
+            ->select("{$this->table}.*, (SELECT COUNT(id) FROM news WHERE news.userId = {$this->table}.id) news")
             ->from($this->table)
             ->order_by("id", 'desc')
             ->get()
@@ -44,12 +43,10 @@ class UserAdmin extends AdminModel
     public function insert($data = array())
     {
         $this->db->insert($this->table, array(
-            'username' => $this->input->post('username'),
-            'email' => $this->input->post('email'),
-            'password' => hash($this->hashAlgo, $this->input->post('password')),
             'name' => $this->input->post('name'),
             'surname' => $this->input->post('surname'),
-            'avatar' => $data['image']->name,
+            'image' => $data['image']->name,
+            'about' => $this->input->post('about'),
             'status' => $this->input->post('status'),
             'createdAt' => $this->date->set()->mysqlDatetime(),
             'updatedAt' => $this->date->set()->mysqlDatetime()
@@ -69,17 +66,13 @@ class UserAdmin extends AdminModel
 
     public function update($record, $data = array())
     {
-        $password = $this->input->post('password');
-
         $this->db
             ->where('id', $record->id)
             ->update($this->table, array(
-                'username' => $this->input->post('username'),
-                'email' => $this->input->post('email'),
-                'password' => empty($password) ? $record->password : hash($this->hashAlgo, $password),
                 'name' => $this->input->post('name'),
                 'surname' => $this->input->post('surname'),
-                'avatar' => $data['image']->name,
+                'image' => $data['image']->name,
+                'about' => $this->input->post('about'),
                 'status' => $this->input->post('status'),
                 'updatedAt' => $this->date->set()->mysqlDatetime()
             ));
@@ -105,7 +98,7 @@ class UserAdmin extends AdminModel
 
         foreach ($records as $record){
             $this->utils->deleteFile([
-                'public/upload/user/avatar/'. $record->avatar
+                'public/upload/author/'. $record->image
             ]);
         }
 

@@ -15,7 +15,7 @@ class AuthorAdminController extends AdminController
 
 
     // Arama yapılacak kolonlar.
-    public $search = array('name', 'surname', 'email');
+    public $search = array('name', 'surname');
 
 
     public $actions = array(

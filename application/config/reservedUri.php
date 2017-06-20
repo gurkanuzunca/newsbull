@@ -9,3 +9,4 @@ $config['reservedUri']['tr']['@gallery'] = 'galeriler';
 $config['reservedUri']['tr']['@user'] = 'hesap';
 $config['reservedUri']['tr']['@profile'] = 'profil';
 $config['reservedUri']['tr']['@comment'] = 'yorum';
+$config['reservedUri']['tr']['@author'] = 'yazarlar';

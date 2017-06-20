@@ -15,7 +15,6 @@ class Installer extends InstallManager
         'users',
     );
 
-
     /**
      * Rotasyon tanımlamaları.
      *
@@ -30,9 +29,10 @@ class Installer extends InstallManager
                 'hesap/profil' => 'User/UserController/profile',
                 'hesap/parola' => 'User/UserController/password',
                 'hesap/avatar' => 'User/UserController/avatar',
+                'hesap/haber-yaz' => 'User/UserController/writeNews',
+                'hesap/dogrula/(.+)' => 'User/UserController/verify/$1',
                 'hesap/parolami-unuttum' => 'User/UserController/forgotPassword',
                 'hesap/parolami-sifirla/(.+)' => 'User/UserController/resetPassword/$1',
-                'hesap/dogrula/(.+)' => 'User/UserController/verify/$1',
                 'hesap' => 'User/UserController/index',
             ),
             'uri' => 'hesap'

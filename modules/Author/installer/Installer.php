@@ -12,9 +12,8 @@ class Installer extends InstallManager
      * @var array
      */
     public $tables = array(
-        'users',
+        'authors',
     );
-
 
     /**
      * Rotasyon tanımlamaları.
@@ -24,18 +23,10 @@ class Installer extends InstallManager
     public $routes = array(
         'tr' => array(
             'route' => array(
-                'hesap/giris' => 'User/UserController/login',
-                'hesap/cikis' => 'User/UserController/logout',
-                'hesap/olustur' => 'User/UserController/create',
-                'hesap/profil' => 'User/UserController/profile',
-                'hesap/parola' => 'User/UserController/password',
-                'hesap/avatar' => 'User/UserController/avatar',
-                'hesap/parolami-unuttum' => 'User/UserController/forgotPassword',
-                'hesap/parolami-sifirla/(.+)' => 'User/UserController/resetPassword/$1',
-                'hesap/dogrula/(.+)' => 'User/UserController/verify/$1',
-                'hesap' => 'User/UserController/index',
+                '@uri' => 'Author/AuthorController/index',
+                '@uri/([a-zA-Z0-9_-]+)' => 'Author/AuthorController/view/$1',
             ),
-            'uri' => 'hesap'
+            'uri' => 'yazarlar'
         ),
     );
 

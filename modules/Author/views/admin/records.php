@@ -24,9 +24,10 @@
         <tr>
             <th width="40" class="text-center"><i class="fa fa-ellipsis-v"></i></th>
             <th width="50">#</th>
-            <th>Kullanıcı Adı</th>
+            <th>Ad</th>
+            <th>Soyad</th>
             <th>Email</th>
-            <th width="100" class="text-center">Yorumlar</th>
+            <th width="100" class="text-center">Haberler</th>
             <th width="150">Durum</th>
             <th width="100" class="text-right">İşlem</th>
         </tr>
@@ -38,14 +39,14 @@
                     <input type="checkbox" class="checkall-item" value="<?php echo $item->id ?>" />
                 </td>
                 <td><?php echo $item->id ?></td>
-                <td><?php echo $item->username ?></td>
-                <td><?php echo $item->email ?></td>
-                <td class="text-center"><a class="btn btn-success btn-xs" href="<?php echo makeUri('admin', 'comment', 'records', ['query' => ['userId' => $item->id]])?>"><i class="fa fa-comment"></i> <?php echo $item->comments ?></a></td>
+                <td><?php echo $item->name ?></td>
+                <td><?php echo $item->surname ?></td>
+                <td class="text-center"><a class="btn btn-success btn-xs" href="<?php echo makeUri('admin', 'news', 'records', ['query' => ['authorId' => $item->id]])?>"><i class="fa fa-comment"></i> <?php echo $item->news ?></a></td>
                 <td>
-                    <?php if ($item->status === 'unverified'): ?>
-                        <span class="label label-danger">Onaylı Değil</span>
+                    <?php if ($item->status === 'unpublished'): ?>
+                        <span class="label label-danger">Yayında Değil</span>
                     <?php else: ?>
-                        <span class="label label-success">Onaylı</span>
+                        <span class="label label-success">Yayında</span>
                     <?php endif; ?>
                 </td>
                 <td class="text-right">

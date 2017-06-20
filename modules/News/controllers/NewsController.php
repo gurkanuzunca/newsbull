@@ -11,6 +11,12 @@ class NewsController extends BaseController
 {
     public $module = 'news';
 
+    /**
+     * Haber detay
+     *
+     * @param $categorySlug
+     * @param $newsSlug
+     */
     public function view($categorySlug, $newsSlug)
     {
         $this->load->model('news/news');

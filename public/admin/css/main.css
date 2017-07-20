@@ -2,6 +2,7 @@
 
 body {background-color: #ecf0f1; font-size: 13px; font-family: "Open Sans", Arial, sans-serif;}
 a {outline: none;}
+.fa:hover {text-decoration: none;}
 .nav-tabs {margin-bottom: 15px;}
 .checkbox label {line-height: 20px;}
 .radio label {line-height: 20px;}

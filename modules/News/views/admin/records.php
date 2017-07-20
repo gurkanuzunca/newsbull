@@ -64,6 +64,9 @@
                     <?php endif; ?>
                 </td>
                 <td class="text-right">
+                    <a class="btn btn-xs btn-info" href="<?php echo clink(['@news', $item->categorySlug, $item->slug]) ?>" data-toggle="tooltip" data-placement="top" title="Habere git" target="_blank">
+                        <i class="fa fa-external-link"></i>
+                    </a>
                     <?php if ($this->permission('update')): ?>
                         <a class="btn btn-xs btn-primary" href="<?php echo moduleUri('update', $item->id)?>"><i class="fa fa-edit"></i></a>
                     <?php endif; ?>

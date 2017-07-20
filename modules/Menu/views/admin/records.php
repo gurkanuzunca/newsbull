@@ -2,7 +2,7 @@
 <?php echo $this->alert->flash(['error', 'success']); ?>
 
 <div class="panel panel-default">
-    <div class="panel-heading"><i class="fa fa-table"></i> <?php echo $this->moduleTitle ?></div>
+    <div class="panel-heading"><i class="fa fa-table"></i> <?php echo $this->moduleTitle ?>: Gruplar</div>
     <div class="panel-toolbar clearfix">
         <div class="row">
             <div class="col-md-5">
@@ -22,8 +22,8 @@
         <tr>
             <th width="40" class="text-center"><i class="fa fa-ellipsis-v"></i></th>
             <th width="50">#</th>
+            <th width="100" class="text-center">Menüler</th>
             <th>Başlık</th>
-            <th width="100" class="text-center">Kayıtlar</th>
             <th width="100" class="text-right">İşlem</th>
         </tr>
         </thead>
@@ -32,10 +32,11 @@
         <tr>
             <td class="text-center"><input type="checkbox" class="checkall-item" value="<?php echo $item->id ?>" /></td>
             <td><?php echo $item->id ?></td>
+            <td class="text-center">
+                <a class="btn btn-xs btn-success" href="<?php echo moduleUri('childs', $item->id) ?>"><i class="fa fa-share-alt"></i> <?php echo $item->childs ?></a>
+            </td>
             <td><?php echo $item->title ?></td>
-            <td class="text-center"><?php echo $item->childs ?></td>
             <td class="text-right">
-                <a class="btn btn-xs btn-success" href="<?php echo moduleUri('childs', $item->id) ?>"><i class="fa fa-share-alt"></i></a>
                 <?php if ($this->isRoot()): ?>
                     <a class="btn btn-xs btn-primary" href="<?php echo moduleUri('groupUpdate', $item->id) ?>"><i class="fa fa-edit"></i></a>
                 <?php endif; ?>

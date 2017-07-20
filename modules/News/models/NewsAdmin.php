@@ -22,10 +22,11 @@ class NewsAdmin extends AdminModel
         $this->setPaginate($paginate);
 
         return $this->db
-            ->select("{$this->table}.*, (SELECT COUNT(id) FROM comments WHERE comments.newsId = {$this->table}.id) comments")
+            ->select("{$this->table}.*, categories.slug categorySlug, (SELECT COUNT(id) FROM comments WHERE comments.newsId = {$this->table}.id) comments")
             ->from($this->table)
-            ->where('language', $this->language)
-            ->order_by("id", 'desc')
+            ->join('categories', "categories.id = {$this->table}.categoryId")
+            ->where("{$this->table}.language", $this->language)
+            ->order_by("{$this->table}.id", 'desc')
             ->get()
             ->result();
     }

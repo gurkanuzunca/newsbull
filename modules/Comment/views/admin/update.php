@@ -32,11 +32,9 @@
 
                     <div class="form-group">
                         <label>Haber</label>
-
                         <p class="form-control-static">
-                            <a href="<?php echo makeUri('admin', 'news', 'update', $record->newsId) ?>">
-                                <?php echo $record->newsTitle ?>
-                            </a>
+                            <a href="<?php echo makeUri('admin', 'news', 'update', $record->newsId) ?>"><?php echo $record->newsTitle ?></a>
+                            <a class="fa fa-external-link text-primary" href="<?php echo clink(['@news', $record->categorySlug, $record->newsSlug]) ?>" data-toggle="tooltip" data-placement="top" title="Habere git" target="_blank"></a>
                         </p>
                     </div>
                 </div>

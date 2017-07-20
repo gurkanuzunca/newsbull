@@ -9,6 +9,11 @@
                     <?php echo bsFormText('title', 'Başlık', ['required' => true]) ?>
                     <?php echo bsFormTextarea('summary', 'Özet') ?>
                     <?php echo bsFormText('link', 'Bağlantı', ['required' => true]) ?>
+                    <div class="alert alert-info">
+                        Dış bağlantı için <strong>http(s)://</strong> ön eki ile birlikte tam adresi yazınız. Örn: <strong>http://newsbull.org</strong><br>
+                        İç bağlantı için domainden sonraki url'i yazmanız yeterlidir ancak isterseniz iç bağlantılarda da tam adresi yazabilirsiniz. <br>
+                        Örn: <strong>kategori/haber-adresi</strong> ya da <strong>http://newsbull.org/kategori/haber-adresi</strong>
+                    </div>
                     <?php echo bsFormImage('image', 'Görsel') ?>
                 </div>
                 <div class="panel-footer">

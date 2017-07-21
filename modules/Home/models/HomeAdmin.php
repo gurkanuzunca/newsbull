@@ -181,7 +181,7 @@ class HomeAdmin extends AdminModel
 
     public function userDelete($data)
     {
-        return parent::delete('admin_users', $data);
+        return parent::callDelete('admin_users', $data);
     }
 
 

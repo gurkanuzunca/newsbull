@@ -10,10 +10,11 @@ class CommentAdmin extends AdminModel
     public function find($id)
     {
         return $this->db
-            ->select("{$this->table}.*, users.username userName, news.title newsTitle")
+            ->select("{$this->table}.*, users.username userName, news.title newsTitle, news.slug newsSlug, categories.slug categorySlug")
             ->from($this->table)
             ->join('users', "users.id = {$this->table}.userId")
             ->join('news', "news.id = {$this->table}.newsId")
+            ->join('categories', "categories.id = news.categoryId")
             ->where("{$this->table}.id", $id)
             ->get()
             ->row();
@@ -25,10 +26,11 @@ class CommentAdmin extends AdminModel
         $this->setPaginate($paginate);
 
         return $this->db
-            ->select("{$this->table}.*, users.username userName, news.title newsTitle")
+            ->select("{$this->table}.*, users.username userName, news.title newsTitle, news.slug newsSlug, categories.slug categorySlug")
             ->from($this->table)
             ->join('users', "users.id = {$this->table}.userId")
             ->join('news', "news.id = {$this->table}.newsId")
+            ->join('categories', "categories.id = news.categoryId")
             ->order_by("{$this->table}.id", 'desc')
             ->get()
             ->result();

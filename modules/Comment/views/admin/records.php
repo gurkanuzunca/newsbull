@@ -39,7 +39,10 @@
                 </td>
                 <td><?php echo $item->id ?></td>
                 <td><?php echo $item->userName ?></td>
-                <td><?php echo $item->newsTitle ?></td>
+                <td>
+                    <?php echo $item->newsTitle ?>
+                    <a class="fa fa-external-link text-primary" href="<?php echo clink(['@news', $item->categorySlug, $item->newsSlug]) ?>" data-toggle="tooltip" data-placement="top" title="Habere git" target="_blank"></a>
+                </td>
                 <td><?php echo $this->date->set($item->createdAt)->datetimeWithName() ?></td>
                 <td>
                     <?php if ($item->status === 'unpublished'): ?>

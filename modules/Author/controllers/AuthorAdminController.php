@@ -8,7 +8,7 @@ class AuthorAdminController extends AdminController
     public $module = 'author';
     public $model = 'author';
     public $icon = 'fa-user';
-    public $type = null;
+    public $type = 'public';
     public $menuPattern = array(
         'table' => 'authors',
         'title' => 'fullname',

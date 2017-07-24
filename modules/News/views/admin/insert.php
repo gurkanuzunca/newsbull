@@ -7,6 +7,7 @@
                 <div class="panel-heading"><i class="fa fa-plus-square"></i> Kayıt Ekle</div>
                 <div class="panel-body">
                     <?php echo bsFormDropdown('categoryId', 'Kategori', ['required' => true, 'options' => prepareForSelect($this->appmodel->categories(), 'id', 'title', 'Seçiniz')]) ?>
+                    <?php echo bsFormDropdown('authorId', 'Yazar', ['options' => prepareForSelect($this->appmodel->authors(), 'id', 'fullname', 'Yok')]) ?>
                     <?php echo bsFormText('title', 'Başlık', ['required' => true]) ?>
                     <?php echo bsFormText('listTitle', 'Liste Başlığı') ?>
                     <p class="help-block">Başlık ile aynı ise boş bırakınız.</p>

@@ -10,12 +10,16 @@ class AuthorAdminController extends AdminController
     public $icon = 'fa-user';
     public $type = null;
     public $menuPattern = array(
+        'table' => 'authors',
+        'title' => 'fullname',
+        'hint' => 'fullname',
+        'link' => array('slug'),
         'moduleLink' => true
     );
 
 
     // Arama yapılacak kolonlar.
-    public $search = array('name', 'surname');
+    public $search = array('fullname');
 
 
     public $actions = array(

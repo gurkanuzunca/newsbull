@@ -22,7 +22,7 @@ class AuthorAdmin extends AdminModel
         $this->setPaginate($paginate);
 
         return $this->db
-            ->select("{$this->table}.*, (SELECT COUNT(id) FROM news WHERE news.userId = {$this->table}.id) news")
+            ->select("{$this->table}.*, (SELECT COUNT(id) FROM news WHERE news.authorId = {$this->table}.id) news")
             ->from($this->table)
             ->order_by("id", 'desc')
             ->get()
@@ -43,8 +43,8 @@ class AuthorAdmin extends AdminModel
     public function insert($data = array())
     {
         $this->db->insert($this->table, array(
-            'name' => $this->input->post('name'),
-            'surname' => $this->input->post('surname'),
+            'fullname' => $this->input->post('fullname'),
+            'slug' => $this->makeSlug('slug', 'fullname'),
             'image' => $data['image']->name,
             'about' => $this->input->post('about'),
             'status' => $this->input->post('status'),
@@ -69,8 +69,8 @@ class AuthorAdmin extends AdminModel
         $this->db
             ->where('id', $record->id)
             ->update($this->table, array(
-                'name' => $this->input->post('name'),
-                'surname' => $this->input->post('surname'),
+                'fullname' => $this->input->post('fullname'),
+                'slug' => $this->makeSlug('slug', 'fullname'),
                 'image' => $data['image']->name,
                 'about' => $this->input->post('about'),
                 'status' => $this->input->post('status'),

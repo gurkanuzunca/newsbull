@@ -4,8 +4,8 @@
 CREATE TABLE `authors` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `userId` int(10) unsigned DEFAULT NULL,
-  `name` varchar(255) NOT NULL,
-  `surname` varchar(255) NOT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `about` longtext,
   `status` varchar(255) NOT NULL DEFAULT 'published',

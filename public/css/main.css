@@ -72,6 +72,20 @@ a:hover {color: #000;}
 .news-details .image {margin-bottom: 30px;}
 .news-details .image img {display: block; width: 100%; height: auto;}
 
+.author-card {border: dotted #ddd; border-width: 1px 0; padding: 15px 0; margin-bottom: 15px;}
+.author-card .row {margin: 0 -5px;}
+.author-card .row .column {padding: 0 5px;}
+.author-card .image {margin: 0;}
+.author-card .image img {display: block; width: 100%; height: auto;}
+.author-card .detail h3 {font-size: 18px; margin: 0 0 10px 0; font-weight: 600;}
+.author-card .detail p {color: #999; font-size: 13px; height: 60px; overflow: hidden;}
+.author-card .detail p.about {height: auto;}
+
+.authors .item {margin-bottom: 30px;}
+.authors .item img {display: block; width: 100%; height: auto; margin-bottom: 15px;}
+.authors .item .detail h3 {font-size: 18px; margin: 0 0 10px 0; font-weight: 600;}
+.authors .item .detail p {color: #999; font-size: 13px; height: 60px; overflow: hidden;}
+
 .gallery-details .gallery-content {margin-bottom: 30px;}
 .gallery-details .images-serial .item {margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px dotted #ddd;}
 .gallery-details .images-serial .item .title {font-size: 20px; margin-top: 15px; font-weight: 600; line-height: 26px;}

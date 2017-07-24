@@ -6,8 +6,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><i class="fa fa-plus-square"></i> Kayıt Ekle</div>
                 <div class="panel-body">
-                    <?php echo bsFormText('name', 'Ad', ['required' => true]) ?>
-                    <?php echo bsFormText('surname', 'Soyad', ['required' => true]) ?>
+                    <?php echo bsFormText('fullname', 'Ad Soyad', ['required' => true]) ?>
+                    <?php echo bsFormText('slug', 'Slug') ?>
                     <?php echo bsFormTextarea('about', 'Hakkında') ?>
                     <?php echo bsFormImage('image', 'Fotoğraf') ?>
                 </div>

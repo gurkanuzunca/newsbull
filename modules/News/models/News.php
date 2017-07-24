@@ -56,28 +56,19 @@ class News extends BaseModel
     /**
      * Slug'a göre kaydı bulur.
      *
-     * @param $slug
+     * @param string $slug
+     * @param array $with
      * @return object
      */
-    public function findBySlug($slug)
+    public function findBySlug($slug, $with = array())
     {
-        return $this->find($slug, 'slug');
-    }
+        $news = $this->find($slug, 'slug');
 
-    /**
-     * Kaydı kategorisi ile birlikte bulur.
-     *
-     * @param $value
-     * @param string $column
-     * @return object
-     */
-    public function findWithCategory($value, $column = 'id')
-    {
-        $news = $this->find($value, $column);
-
-        if ($news) {
-            $this->load->model('category/category');
-            $news->category = $this->category->find($news->categoryId);
+        if ($news && ! empty($with)) {
+            foreach ($with as $model => $column) {
+                $this->load->model("{$model}/{$model}");
+                $news->$model = $this->$model->find($news->$column);
+            }
         }
 
         return $news;

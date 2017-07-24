@@ -7,11 +7,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><i class="fa fa-plus-square"></i> Kayıt Düzenle</div>
                 <div class="panel-body">
-                    <?php echo bsFormDropdown('categoryId', 'Kategori', [
-                        'required' => true,
-                        'value' => $record->categoryId,
-                        'options' => prepareForSelect($this->appmodel->categories(), 'id', 'title', 'Seçiniz')]
-                    ) ?>
+                    <?php echo bsFormDropdown('categoryId', 'Kategori', ['required' => true, 'value' => $record->categoryId, 'options' => prepareForSelect($this->appmodel->categories(), 'id', 'title', 'Seçiniz')]) ?>
+                    <?php echo bsFormDropdown('authorId', 'Yazar', ['value' => $record->authorId, 'options' => prepareForSelect($this->appmodel->authors(), 'id', 'fullname', 'Yok')]) ?>
                     <?php echo bsFormText('title', 'Başlık', ['required' => true, 'value' => $record->title]) ?>
                     <?php echo bsFormText('listTitle', 'Liste Başlığı', ['value' => $record->listTitle]) ?>
                     <p class="help-block">Başlık ile aynı ise boş bırakınız.</p>

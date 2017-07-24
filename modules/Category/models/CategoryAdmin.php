@@ -75,7 +75,6 @@ class CategoryAdmin extends AdminModel
 
     public function update($record, $data = array())
     {
-
         $this->db
             ->where('id', $record->id)
             ->update($this->table, array(

@@ -112,6 +112,28 @@ CREATE TABLE `menus` (
 
 
 -- ----------------------------
+-- Table structure for `users`
+-- ----------------------------
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `surname` varchar(255) NOT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `rememberToken` varchar(255) DEFAULT NULL,
+  `verifyToken` varchar(255) DEFAULT NULL,
+  `passwordToken` varchar(255) DEFAULT NULL,
+  `passwordTokenDate` datetime DEFAULT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'unverified',
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- ----------------------------
 -- Table structure for `categories`
 -- ----------------------------
 CREATE TABLE `categories` (
@@ -130,12 +152,34 @@ CREATE TABLE `categories` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+-- ----------------------------
+-- Table structure for `authors`
+-- ----------------------------
+CREATE TABLE `authors` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `userId` int(10) unsigned DEFAULT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `about` longtext,
+  `status` varchar(255) NOT NULL DEFAULT 'published',
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_authors_userId` (`userId`),
+  CONSTRAINT `fk_authors_userId` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON UPDATE CASCADE ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
 -- ----------------------------
 -- Table structure for `news`
 -- ----------------------------
 CREATE TABLE `news` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `categoryId` int(10) unsigned NOT NULL,
+  `authorId` int(10) unsigned DEFAULT NULL,
   `title` varchar(255) NOT NULL,
   `listTitle` varchar(255) DEFAULT NULL,
   `slug` varchar(255) NOT NULL,
@@ -154,7 +198,9 @@ CREATE TABLE `news` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_news_categoryId` (`categoryId`),
-  CONSTRAINT `fk_news_categoryId` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`) ON UPDATE CASCADE
+  KEY `fk_news_authorId` (`authorId`),
+  CONSTRAINT `fk_news_categoryId` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_news_authorId` FOREIGN KEY (`authorId`) REFERENCES `authors` (`id`) ON UPDATE CASCADE ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -200,26 +246,6 @@ CREATE TABLE `gallery_images` (
   CONSTRAINT `fk_images_galleryId` FOREIGN KEY (`galleryId`) REFERENCES `galleries` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Table structure for `users`
--- ----------------------------
-CREATE TABLE `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `surname` varchar(255) NOT NULL,
-  `avatar` varchar(255) DEFAULT NULL,
-  `rememberToken` varchar(255) DEFAULT NULL,
-  `verifyToken` varchar(255) DEFAULT NULL,
-  `passwordToken` varchar(255) DEFAULT NULL,
-  `passwordTokenDate` datetime DEFAULT NULL,
-  `status` varchar(255) NOT NULL DEFAULT 'unverified',
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for `comments`

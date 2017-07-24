@@ -25,5 +25,5 @@ CREATE TABLE `news` (
   KEY `fk_news_categoryId` (`categoryId`),
   KEY `fk_news_authorId` (`authorId`),
   CONSTRAINT `fk_news_categoryId` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `fk_news_authorId` FOREIGN KEY (`authorId`) REFERENCES `authors` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `fk_news_authorId` FOREIGN KEY (`authorId`) REFERENCES `authors` (`id`) ON UPDATE CASCADE ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

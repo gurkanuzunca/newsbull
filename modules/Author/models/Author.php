@@ -3,7 +3,7 @@
 use Models\BaseModel;
 
 /**
- * Class User
+ * Class Author
  *
  * @property \News $news
  */
@@ -102,37 +102,4 @@ class Author extends BaseModel
         $this->db->where('authorId', $author->id);
         $author->newsCount = $this->news->count();
     }
-
-    /**
-     * Yeni haber oluşturma.
-     *
-     * @param object $author
-     * @param array $data
-     * @return bool|string
-     */
-    public function create($author, $data = array())
-    {
-        $this->db->insert($this->table, array(
-            'authorId' => $author->id,
-            'categoryId' => $this->input->post('categoryId'),
-            'title' => $this->input->post('title'),
-            'image' => $data['image']->name,
-            'content' => $this->input->post('content'),
-            'status' => 'unpublished',
-            'language' => $this->language,
-            'createdAt' => $this->date->set()->mysqlDatetime(),
-            'updatedAt' => $this->date->set()->mysqlDatetime()
-        ));
-
-        $insertId = $this->db->insert_id();
-
-        if ($insertId > 0) {
-            $record = $this->find($insertId);
-
-            return $record;
-        }
-
-        return false;
-    }
-
 }

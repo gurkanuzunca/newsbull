@@ -24,6 +24,7 @@ class Installer extends InstallManager
         'galleries',
         'gallery_images',
         'users',
+        'authors',
         'slider',
         'socials',
     );
@@ -75,6 +76,7 @@ class Installer extends InstallManager
             'menu' => 'Menü Yönetimi',
             'slider' => 'Slider',
             'user' => 'Üyeler',
+            'authors' => 'Yazarlar',
             'comment' => 'Yorumlar',
             'search' => 'Arama',
             'social' => 'Sosyal Medya',
@@ -213,7 +215,7 @@ class Installer extends InstallManager
                     'module' => 'gallery',
                     'name' => 'title',
                     'title' => 'Sayfa Başlığı',
-                    'value' => null,
+                    'value' => 'Galeriler',
                     'type' => 'text',
                     'arguments' => json_encode(array('required' => true)),
                     'language' => $language,
@@ -221,7 +223,7 @@ class Installer extends InstallManager
                 array(
                     'module' => 'gallery',
                     'name' => 'metaTitle',
-                    'title' => 'Meta Başlığı',
+                    'title' => 'Galeriler',
                     'value' => null,
                     'type' => 'text',
                     'arguments' => json_encode(array()),
@@ -255,6 +257,59 @@ class Installer extends InstallManager
     }
 
 
+
+    public function insertAuthorData()
+    {
+        $languages = $this->config->item('languages');
+        $insert = array();
+
+        foreach ($languages as $language => $label) {
+            $data = array(
+                array(
+                    'module' => 'author',
+                    'name' => 'title',
+                    'title' => 'Sayfa Başlığı',
+                    'value' => 'Yazarlar',
+                    'type' => 'text',
+                    'arguments' => json_encode(array('required' => true)),
+                    'language' => $language,
+                ),
+                array(
+                    'module' => 'author',
+                    'name' => 'metaTitle',
+                    'title' => 'Meta Başlığı',
+                    'value' => 'Yazarlar',
+                    'type' => 'text',
+                    'arguments' => json_encode(array()),
+                    'language' => $language,
+                ),
+                array(
+                    'module' => 'author',
+                    'name' => 'metaDescription',
+                    'title' => 'Meta Tanımı',
+                    'value' => null,
+                    'type' => 'textarea',
+                    'arguments' => json_encode(array()),
+                    'language' => $language,
+                ),
+                array(
+                    'module' => 'author',
+                    'name' => 'metaKeywords',
+                    'title' => 'Meta Anahtar Kelimeleri',
+                    'value' => null,
+                    'type' => 'textarea',
+                    'arguments' => json_encode(array()),
+                    'language' => $language,
+                ),
+
+            );
+
+            $insert = array_merge($insert, $data);
+        }
+
+        $this->db->insert_batch('module_arguments', $insert);
+    }
+
     public function insertSearchData()
     {
         $languages = $this->config->item('languages');
@@ -266,7 +321,7 @@ class Installer extends InstallManager
                     'module' => 'search',
                     'name' => 'title',
                     'title' => 'Sayfa Başlığı',
-                    'value' => null,
+                    'value' => 'Arama',
                     'type' => 'text',
                     'arguments' => json_encode(array('required' => true)),
                     'language' => $language,
@@ -275,7 +330,7 @@ class Installer extends InstallManager
                     'module' => 'search',
                     'name' => 'metaTitle',
                     'title' => 'Meta Başlığı',
-                    'value' => null,
+                    'value' => 'Arama',
                     'type' => 'text',
                     'arguments' => json_encode(array()),
                     'language' => $language,

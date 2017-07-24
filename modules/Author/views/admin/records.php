@@ -24,9 +24,8 @@
         <tr>
             <th width="40" class="text-center"><i class="fa fa-ellipsis-v"></i></th>
             <th width="50">#</th>
-            <th>Ad</th>
-            <th>Soyad</th>
-            <th>Email</th>
+            <th>Ad Soyad</th>
+            <th>Slug</th>
             <th width="100" class="text-center">Haberler</th>
             <th width="150">Durum</th>
             <th width="100" class="text-right">İşlem</th>
@@ -39,9 +38,9 @@
                     <input type="checkbox" class="checkall-item" value="<?php echo $item->id ?>" />
                 </td>
                 <td><?php echo $item->id ?></td>
-                <td><?php echo $item->name ?></td>
-                <td><?php echo $item->surname ?></td>
-                <td class="text-center"><a class="btn btn-success btn-xs" href="<?php echo makeUri('admin', 'news', 'records', ['query' => ['authorId' => $item->id]])?>"><i class="fa fa-comment"></i> <?php echo $item->news ?></a></td>
+                <td><?php echo $item->fullname ?></td>
+                <td><?php echo $this->createModuleLink($item) ?></td>
+                <td class="text-center"><a class="btn btn-success btn-xs" href="<?php echo makeUri('admin', 'news', 'records', ['query' => ['authorId' => $item->id]])?>"><i class="fa fa-newspaper-o"></i> <?php echo $item->news ?></a></td>
                 <td>
                     <?php if ($item->status === 'unpublished'): ?>
                         <span class="label label-danger">Yayında Değil</span>

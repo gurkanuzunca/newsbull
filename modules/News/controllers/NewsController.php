@@ -21,7 +21,10 @@ class NewsController extends BaseController
     {
         $this->load->model('news/news');
 
-        $news = $this->news->findWithCategory($newsSlug, 'slug');
+        $news = $this->news->findBySlug($newsSlug, [
+            'category' => 'categoryId',
+            'author' => 'authorId'
+        ]);
 
         if (! $news) {
             show_404();

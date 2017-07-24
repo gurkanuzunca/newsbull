@@ -13,6 +13,29 @@
                         <?php echo $news->summary; ?>
                     </div>
 
+                    <div class="author-card">
+                        <div class="row">
+                            <div class="column col-sm-2">
+                                <div class="image">
+                                    <a href="<?php echo clink(['@author', $news->author->slug]); ?>" title="<?php echo htmlspecialchars($news->author->fullname); ?>">
+                                        <img src="<?php echo getImage($news->author->image, 'author', 300, 300); ?>" alt="<?php echo htmlspecialchars($news->author->fullname); ?>">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="column col-sm-9">
+                                <div class="detail">
+                                    <a href="<?php echo clink(['@author', $news->author->slug]); ?>" title="<?php echo htmlspecialchars($news->author->fullname); ?>">
+                                        <h3><?php echo $news->author->fullname; ?></h3>
+                                    </a>
+                                    <p><?php echo $news->author->about; ?></p>
+                                    <a href="<?php echo clink(['@author', $news->author->slug]); ?>" title="<?php echo htmlspecialchars($news->author->fullname); ?>">
+                                        Yazarın tüm yazıları
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <?php $this->view('home/widget/share', ['record' => $news]) ?>
 
                     <?php if ($news->hideImage == 0): ?>

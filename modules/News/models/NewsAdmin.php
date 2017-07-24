@@ -46,9 +46,11 @@ class NewsAdmin extends AdminModel
     public function insert($data = array())
     {
         $publishedAt = $this->input->post('publishedAt');
+        $authorId = $this->input->post('authorId');
 
         $this->db->insert($this->table, array(
             'categoryId' => $this->input->post('categoryId'),
+            'authorId' => ! empty($authorId) ? $authorId : null,
             'title' => $this->input->post('title'),
             'listTitle' => $this->input->post('listTitle'),
             'slug' => $this->makeSlug(),
@@ -82,11 +84,13 @@ class NewsAdmin extends AdminModel
     public function update($record, $data = array())
     {
         $publishedAt = $this->input->post('publishedAt');
+        $authorId = $this->input->post('authorId');
 
         $this->db
             ->where('id', $record->id)
             ->update($this->table, array(
                 'categoryId' => $this->input->post('categoryId'),
+                'authorId' => ! empty($authorId) ? $authorId : null,
                 'title' => $this->input->post('title'),
                 'listTitle' => $this->input->post('listTitle'),
                 'slug' => $this->makeSlug(),
@@ -140,6 +144,16 @@ class NewsAdmin extends AdminModel
             ->from('categories')
             ->where('language', $this->language)
             ->order_by("order", 'asc')
+            ->order_by("id", 'asc')
+            ->get()
+            ->result();
+    }
+
+    public function authors()
+    {
+        return $this->db
+            ->select("authors.*, authors.fullname")
+            ->from('authors')
             ->order_by("id", 'asc')
             ->get()
             ->result();

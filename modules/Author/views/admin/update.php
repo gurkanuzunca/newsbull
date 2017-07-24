@@ -7,8 +7,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><i class="fa fa-plus-square"></i> Kayıt Düzenle</div>
                 <div class="panel-body">
-                    <?php echo bsFormText('name', 'Ad', ['required' => true, 'value' => $record->name]) ?>
-                    <?php echo bsFormText('surname', 'Soyad', ['required' => true, 'value' => $record->surname]) ?>
+                    <?php echo bsFormText('fullname', 'Ad Soyad', ['required' => true, 'value' => $record->fullname]) ?>
+                    <?php echo bsFormText('slug', 'Slug', ['value' => $record->slug]) ?>
                     <?php echo bsFormTextarea('about', 'Hakkında', ['value' => $record->about]) ?>
                     <?php echo bsFormImage('image', 'Fotoğraf', ['value' => $record->image, 'path' => 'public/upload/author']) ?>
                 </div>

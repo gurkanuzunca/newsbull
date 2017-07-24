@@ -19,3 +19,6 @@ $lang['goruntulenme'] = 'Görüntülenme';
 $lang['sonraki'] = 'Sonraki';
 $lang['benzer-haberler'] = 'Benzer Haberler';
 $lang['yorumlar'] = 'Yorumlar';
+$lang['yazarlar'] = 'Yazarlar';
+$lang['yazarlar'] = 'Yazarlar';
+$lang['yazar-hakkinda'] = 'Yazar Hakkında';

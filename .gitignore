@@ -6,9 +6,9 @@ nbproject/
 .DS_Store
 application/config/production/*
 application/var/*
-!application/cache/.gitkeep
-!application/logs/.gitkeep
-!application/sessions/.gitkeep
+!application/var/cache/.gitkeep
+!application/var/logs/.gitkeep
+!application/var/sessions/.gitkeep
 !application/.htaccess
 
 public/upload/*

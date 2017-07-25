@@ -4,7 +4,7 @@ composer.phar
 nbproject/
 .idea/
 .DS_Store
-
+application/config/production/*
 application/var/*
 !application/cache/.gitkeep
 !application/logs/.gitkeep

@@ -23,10 +23,13 @@ class HomeController extends BaseController
 
         $homeGalleries = $this->gallery->showHome(6);
 
+        $lastAuthorNews = $this->news->lastAuthorNews();
+
         $this->render('home/home', array(
             'latestNews' => $latestNews,
             'homeCategories' => $homeCategories,
             'homeGalleries' => $homeGalleries,
+            'lastAuthorNews' => $lastAuthorNews,
             'sliders' => $sliders
         ));
     }

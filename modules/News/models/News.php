@@ -221,4 +221,26 @@ class News extends BaseModel
         $this->db->like('title', $query)->or_like('summary', $query);
         return $this->allWithCategory();
     }
+
+    public function lastAuthorNews()
+    {
+        $subQuery = sprintf("SELECT * FROM news WHERE authorId IS NOT NULL AND status = 'published' AND publishedAt < '%s' AND language = '%s' ORDER BY publishedAt DESC", $this->date->set()->mysqlDatetime(), $this->language);
+        $news = $this->db->query("SELECT latest.* FROM ({$subQuery}) latest GROUP BY latest.authorId ORDER BY latest.publishedAt DESC LIMIT 4")->result();
+
+        if ($news) {
+            $this->load->model('category/category');
+
+            $categoryIds = $this->getColumnData($news, 'categoryId');
+            $categories = $this->category->findIn($categoryIds);
+            $this->setRelationOne('category', $news, 'categoryId', $categories, 'id');
+
+            $this->load->model('author/author');
+
+            $authorIds = $this->getColumnData($news, 'authorId');
+            $authors = $this->author->findIn($authorIds);
+            $this->setRelationOne('author', $news, 'authorId', $authors, 'id');
+        }
+
+        return $news;
+    }
 }

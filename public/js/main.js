@@ -7,16 +7,9 @@ var queryString = (function(a) {if (a === "") return {};var b = {};for (var i = 
 
 
 $(function() {
-    $('#showcase .slick').slick({
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        responsive: [{
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 1
-            }
-        }]
+    $("#slider-carousel .carousel-indicators li").hover(function(){
+        var goto = parseInt($(this).attr('data-slide-to'));
+        $("#slider-carousel").carousel(goto);
     });
 
     $('.share-box').on('click', function(){

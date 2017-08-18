@@ -62,8 +62,8 @@ class SliderAdminController extends AdminController
             $this->image->setDefaultImage($record->image);
         }
 
-        $this->image->setMinSizes(1140, 400)
-            ->addProcess('slider', ['thumbnail' => [1140, 400]]);
+        $this->image->setMinSizes(750, 400)
+            ->addProcess('slider', ['thumbnail' => [750, 400]]);
 
         $this->modelData['image'] = $this->image->save();
     }

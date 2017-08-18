@@ -1,5 +1,17 @@
 
-<?php $this->view('slider/slider') ?>
+<section id="slider-author">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <?php $this->view('slider/slider') ?>
+            </div>
+            <div class="col-sm-4">
+                <?php $this->view('news/widget/last-author-news') ?>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
 <section id="news">

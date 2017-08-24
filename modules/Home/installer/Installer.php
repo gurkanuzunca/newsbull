@@ -24,7 +24,7 @@ class Installer extends InstallManager
         'galleries',
         'gallery_images',
         'users',
-        'author',
+        'authors',
         'slider',
         'socials',
     );
@@ -76,7 +76,7 @@ class Installer extends InstallManager
             'menu' => 'Menü Yönetimi',
             'slider' => 'Slider',
             'user' => 'Üyeler',
-            'authors' => 'Yazarlar',
+            'author' => 'Yazarlar',
             'comment' => 'Yorumlar',
             'search' => 'Arama',
             'social' => 'Sosyal Medya',

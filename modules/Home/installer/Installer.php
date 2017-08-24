@@ -24,7 +24,7 @@ class Installer extends InstallManager
         'galleries',
         'gallery_images',
         'users',
-        'authors',
+        'author',
         'slider',
         'socials',
     );

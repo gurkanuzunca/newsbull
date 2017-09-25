@@ -2,6 +2,14 @@
 
 use Controllers\BaseController;
 
+/**
+ * Class HomeController
+ *
+ * @property \Slider $slider
+ * @property \News $news
+ * @property \Category $category
+ * @property \Gallery $gallery
+ */
 class HomeController extends BaseController
 {
     public $module = 'home';

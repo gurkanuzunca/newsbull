@@ -7,6 +7,7 @@ use Models\BaseModel;
  *
  * @property \Comment $comment
  * @property \Category $category
+ * @property \Author $author
  */
 class News extends BaseModel
 {
@@ -224,8 +225,38 @@ class News extends BaseModel
 
     public function lastAuthorNews()
     {
+        /**
+         * Group by için sql mode değiştiriliyor.
+         * Mysql 5.7'den itibaren ONLY_FULL_GROUP_BY aktif gelmekte
+         * bu sebeple group by ile bağlı olmayan kolonlar döndürülmüyor.
+         *
+         * Eğer mod aktifse bu oturum için pasif edilip tekrar aktif ediliyor.
+         * @see https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_only_full_group_by
+         *
+         * **
+         * Sql mod algılama ve group by modu pasif etme.
+         */
+        $sqlMode = $this->db->query("SELECT @@SESSION.sql_mode AS modes")->row();
+        $sqlMode->modes = explode(',', $sqlMode->modes);
+        $groupByKey = array_search('ONLY_FULL_GROUP_BY', $sqlMode->modes);
+
+        if ($groupByKey !== false) {
+            unset($sqlMode->modes[$groupByKey]);
+            $this->db->query("SET SESSION sql_mode='".(implode(',', $sqlMode->modes))."'");
+        }
+        /** *****/
+
         $subQuery = sprintf("SELECT * FROM news WHERE authorId IS NOT NULL AND status = 'published' AND publishedAt < '%s' AND language = '%s' ORDER BY publishedAt DESC", $this->date->set()->mysqlDatetime(), $this->language);
         $news = $this->db->query("SELECT latest.* FROM ({$subQuery}) latest GROUP BY latest.authorId ORDER BY latest.publishedAt DESC LIMIT 4")->result();
+
+        /**
+         * Sql modu eski ayarlarına geri alma.
+         */
+        if ($groupByKey !== false) {
+            $sqlMode->modes[] = 'ONLY_FULL_GROUP_BY';
+            $this->db->query("SET SESSION sql_mode='" . (implode(',', $sqlMode->modes)) . "'");
+        }
+        /** *****/
 
         if ($news) {
             $this->load->model('category/category');
